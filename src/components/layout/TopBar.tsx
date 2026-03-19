@@ -5,7 +5,7 @@ export default function TopBar() {
   return (
     <div className="hidden lg:block">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-primary text-white text-xs py-1.5 px-6 rounded-b-lg flex items-center justify-between">
+        <div className="bg-primary text-white text-sm py-2.5 px-6 rounded-b-lg flex items-center justify-between">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2">
               <Phone size={13} />

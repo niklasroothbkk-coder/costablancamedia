@@ -43,7 +43,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Costa Blanca Media",
   url: "https://www.costablancamedia.es",
-  logo: "https://www.costablancamedia.es/images/logo.png",
+  logo: "https://www.costablancamedia.es/images/Costa Blanca Media Logotype.jpg",
   contactPoint: {
     "@type": "ContactPoint",
     email: "info@costablancamedia.es",

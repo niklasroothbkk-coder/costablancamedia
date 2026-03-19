@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 interface FormData {
@@ -9,17 +9,10 @@ interface FormData {
   subject: string;
   phone: string;
   message: string;
-  captcha: string;
 }
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-
-  const captchaNumbers = useMemo(() => {
-    const a = Math.floor(Math.random() * 10) + 1;
-    const b = Math.floor(Math.random() * 10) + 1;
-    return { a, b, answer: a + b };
-  }, []);
 
   const {
     register,
@@ -29,11 +22,6 @@ export default function ContactForm() {
   } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-    if (parseInt(data.captcha) !== captchaNumbers.answer) {
-      alert("Incorrect math answer. Please try again.");
-      return;
-    }
-
     setStatus("sending");
     try {
       const res = await fetch("/api/contact", {
@@ -111,19 +99,6 @@ export default function ContactForm() {
       {errors.message && (
         <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>
       )}
-      <div className="flex items-center gap-4">
-        <label className="text-text text-sm font-medium">
-          {captchaNumbers.a} + {captchaNumbers.b} =
-        </label>
-        <input
-          {...register("captcha", { required: "Please solve the math problem" })}
-          type="number"
-          className="w-20 px-4 py-3 border border-border rounded bg-white text-text-dark focus:outline-none focus:border-primary transition-colors"
-        />
-        {errors.captcha && (
-          <p className="text-red-500 text-xs">{errors.captcha.message}</p>
-        )}
-      </div>
       <button
         type="submit"
         disabled={status === "sending"}

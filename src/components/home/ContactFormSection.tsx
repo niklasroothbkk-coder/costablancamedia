@@ -9,8 +9,8 @@ export default function ContactFormSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Form */}
           <div>
-            <p className="text-primary font-semibold text-sm mb-2">
-              // Contact Now
+            <p className="font-semibold text-[20px] mb-2">
+              <span className="text-primary">//</span> <span className="text-text-dark">Contact Now</span>
             </p>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-8">
               Get in touch with us

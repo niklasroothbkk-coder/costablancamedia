@@ -15,22 +15,18 @@ export default function Footer() {
           <div>
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/images/logo.png"
+                src="/images/CBM Footer Logo.png"
                 alt="Costa Blanca Media logo"
-                width={80}
-                height={80}
-                className="rounded-full"
+                width={225}
+                height={63}
+                className="object-contain"
               />
             </Link>
-            <p className="text-sm text-gray-400 mt-4">
-              Swedish-operated web agency in Torrevieja, Spain. Providing
-              quality web solutions since day one.
-            </p>
           </div>
 
           {/* Column 2: Services */}
           <div>
-            <h3 className="text-white font-heading font-bold text-lg mb-4">
+            <h3 className="font-heading font-bold text-lg mb-4" style={{ color: '#ffffff' }}>
               Services
             </h3>
             <ul className="space-y-2">
@@ -38,7 +34,7 @@ export default function Footer() {
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="text-sm text-gray-400 hover:text-primary transition-colors"
+                    className="text-[16px] text-white hover:text-primary transition-colors"
                   >
                     {service.name}
                   </Link>
@@ -49,7 +45,7 @@ export default function Footer() {
 
           {/* Column 3: References */}
           <div>
-            <h3 className="text-white font-heading font-bold text-lg mb-4">
+            <h3 className="font-heading font-bold text-lg mb-4" style={{ color: '#ffffff' }}>
               References
             </h3>
             <ul className="space-y-2">
@@ -57,7 +53,7 @@ export default function Footer() {
                 <li key={project.slug}>
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="text-sm text-gray-400 hover:text-primary transition-colors"
+                    className="text-[16px] text-white hover:text-primary transition-colors"
                   >
                     {project.name}
                   </Link>
@@ -68,11 +64,11 @@ export default function Footer() {
 
           {/* Column 4: Contact */}
           <div>
-            <h3 className="text-white font-heading font-bold text-lg mb-4">
+            <h3 className="font-heading font-bold text-lg mb-4" style={{ color: '#ffffff' }}>
               Contact
             </h3>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-sm text-gray-400">
+              <li className="flex items-center gap-2 text-[16px] text-white">
                 <Mail size={16} className="text-primary flex-shrink-0" />
                 <a
                   href={`mailto:${siteConfig.email}`}
@@ -81,7 +77,7 @@ export default function Footer() {
                   {siteConfig.email}
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-sm text-gray-400">
+              <li className="flex items-center gap-2 text-[16px] text-white">
                 <svg
                   width="16"
                   height="16"

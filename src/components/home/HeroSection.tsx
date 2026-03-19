@@ -63,8 +63,8 @@ export default function HeroSection() {
 
           {/* Right column - Content */}
           <div className="pt-2">
-            <p className="text-primary font-semibold text-sm mb-2 tracking-wide">
-              // Get to Know
+            <p className="font-semibold text-[20px] mb-2 tracking-wide">
+              <span className="text-primary">//</span> <span className="text-text-dark">Get to Know</span>
             </p>
             <h1 className="font-heading text-3xl lg:text-[42px] font-bold text-text-dark mb-5 leading-tight">
               Swedish-operated web agency in Torrevieja
@@ -92,24 +92,12 @@ export default function HeroSection() {
             </p>
             <div className="flex items-center gap-4 p-4 bg-light-gray rounded-lg">
               <Image
-                src="/images/logo.png"
+                src="/images/Costa Blanca Media Logotype.jpg"
                 alt="Costa Blanca Media logo"
-                width={44}
-                height={44}
-                className="rounded-full"
+                width={210}
+                height={58}
+                className="object-contain"
               />
-              <div>
-                <p className="font-heading font-bold text-text-dark text-sm">
-                  Costa Blanca Media
-                </p>
-                <p className="text-text text-xs">Torrevieja</p>
-              </div>
-              <Link
-                href="/contact"
-                className="ml-auto inline-flex items-center px-5 py-2 bg-primary text-white rounded font-semibold text-sm hover:bg-primary-dark transition-colors"
-              >
-                Contact
-              </Link>
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@ import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import ProjectCard from "@/components/shared/ProjectCard";
 import { services, getServiceBySlug } from "@/lib/data/services";
 import { projects } from "@/lib/data/projects";
-import { Check, Phone } from "lucide-react";
+import { Check } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -71,7 +71,6 @@ export default async function ServicePage({ params }: Props) {
                 ))}
               </nav>
               <div className="mt-8 bg-primary rounded-lg p-6 text-white text-center">
-                <Phone size={32} className="mx-auto mb-3 opacity-80" />
                 <h4 className="font-heading font-bold mb-2">Need help?</h4>
                 <p className="text-sm opacity-90 mb-3">
                   Contact us for a free consultation
@@ -101,20 +100,32 @@ export default async function ServicePage({ params }: Props) {
             </h1>
 
             {service.description.map((paragraph, i) => (
-              <p key={i} className="text-text leading-relaxed mb-4">
+              <p key={i} className={`leading-relaxed mb-4 ${i === 0 ? "text-text-dark font-semibold" : "text-text"}`}>
                 {paragraph}
               </p>
             ))}
 
+            {/* Hosting packages - only for hosting service */}
+            {slug === "hosting-service" && (
+              <div className="my-8">
+                <h3 className="font-heading font-bold text-text-dark text-2xl mb-2">
+                  Hosting packages
+                </h3>
+                <p className="text-text leading-relaxed mb-4">
+                  We offer 2 standard packages and one custom package that can be customized according to your needs. Contact us to discuss the best option for you, and we will assist you in getting exactly what you need.
+                </p>
+              </div>
+            )}
+
             {/* Benefits */}
-            <div className="bg-light-gray rounded-lg p-8 my-8">
-              <h3 className="font-heading font-bold text-text-dark text-xl mb-4">
-                Key Benefits
+            <div className="my-8">
+              <h3 className="font-heading font-bold text-text-dark text-2xl mb-4">
+                Benefits
               </h3>
               <ul className="space-y-3">
                 {service.benefits.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-3">
-                    <Check size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                    <Check size={20} className="text-primary mt-0.5 flex-shrink-0 fill-primary stroke-white" />
                     <span className="text-text">{benefit}</span>
                   </li>
                 ))}
@@ -122,29 +133,23 @@ export default async function ServicePage({ params }: Props) {
             </div>
 
             {/* Related Projects */}
-            <h3 className="font-heading font-bold text-text-dark text-xl mb-6 mt-12">
-              Portfolio Examples
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {relatedProjects.map((project) => (
-                <ProjectCard key={project.slug} project={project} />
+            <p className="text-text mt-8 mb-2">
+              Some of our work you can see here.{" "}
+              {relatedProjects.map((project, i) => (
+                <span key={project.slug}>
+                  <Link href={`/projects/${project.slug}`} className="text-text-dark font-semibold hover:text-primary transition-colors">
+                    {project.name}
+                  </Link>
+                  {i < relatedProjects.length - 1 && (i === relatedProjects.length - 2 ? " and " : ", ")}
+                </span>
               ))}
-            </div>
+            </p>
 
             {/* CTA */}
-            <div className="mt-12 bg-primary/10 rounded-lg p-8 text-center">
-              <p className="text-text-dark font-heading font-bold text-lg mb-2">
-                Contact us for a free consultation
+            <div className="mt-8 border-l-4 border-primary pl-6 py-4">
+              <p className="text-text-dark font-heading font-bold text-lg">
+                Contact us for a free consultation Monday to Friday, from 10:00 to 17:00.
               </p>
-              <p className="text-text mb-4">
-                Monday to Friday, from 10:00 to 17:00
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center px-8 py-3 bg-primary text-white rounded font-semibold text-sm hover:bg-primary-dark transition-colors"
-              >
-                Get in Touch &gt;
-              </Link>
             </div>
           </div>
         </div>

@@ -11,8 +11,17 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div className={centered ? "text-center" : ""}>
-      <p className="text-primary font-semibold text-sm mb-2">{subtitle}</p>
-      <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark">
+      <p className="font-semibold text-[20px] mb-2">
+        {subtitle.startsWith("//") ? (
+          <>
+            <span className="text-primary">//</span>
+            <span className="text-text-dark">{subtitle.slice(2)}</span>
+          </>
+        ) : (
+          <span className="text-text-dark">{subtitle}</span>
+        )}
+      </p>
+      <h2 className="font-heading text-3xl lg:text-4xl font-bold text-text-dark">
         {title}
       </h2>
     </div>

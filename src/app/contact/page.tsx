@@ -13,19 +13,19 @@ export const metadata: Metadata = {
 const contactInfo = [
   {
     icon: Phone,
-    title: "Phone",
-    text: "Only mail support",
+    title: "Call for help",
+    lines: ["Not supported right now.", "For now only mail support"],
   },
   {
     icon: MapPin,
-    title: "Address",
-    text: "Torrevieja Center, Alicante, Spain",
+    title: "Office address",
+    lines: ["Torrevieja Center", "Alicante, Spain"],
   },
   {
     icon: Mail,
-    title: "Email",
-    text: "info@costablancamedia.es",
-    href: "mailto:info@costablancamedia.es",
+    title: "Email address",
+    lines: ["support@costablancamedia.es", "info@costablancamedia.es"],
+    hrefs: ["mailto:support@costablancamedia.es", "mailto:info@costablancamedia.es"],
   },
 ];
 
@@ -33,42 +33,45 @@ export default function ContactPage() {
   return (
     <section className="py-16 lg:py-24">
       <Container>
-        <div className="text-center mb-12">
-          <h1 className="font-heading text-4xl lg:text-5xl font-bold text-text-dark">
-            Request a quote for work
-          </h1>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Form */}
           <div className="lg:col-span-2">
+            <h1 className="font-heading text-3xl lg:text-4xl font-bold text-text-dark mb-2">
+              Request a quote for work
+            </h1>
+            <p className="text-text mb-8">
+              Feel free to contact us through the contact form.
+            </p>
             <ContactForm />
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             {contactInfo.map((item) => (
               <div
                 key={item.title}
-                className="bg-light-gray rounded-lg p-6 flex items-start gap-4"
+                className="flex items-start gap-5"
               >
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <item.icon size={24} className="text-primary" />
+                <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                  <item.icon size={28} className="text-white" />
                 </div>
                 <div>
-                  <h3 className="font-heading font-bold text-text-dark mb-1">
+                  <h3 className="font-heading font-bold text-text-dark text-xl mb-1">
                     {item.title}
                   </h3>
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      className="text-text hover:text-primary transition-colors"
-                    >
-                      {item.text}
-                    </a>
-                  ) : (
-                    <p className="text-text">{item.text}</p>
-                  )}
+                  {item.lines.map((line, i) => (
+                    item.hrefs ? (
+                      <a
+                        key={i}
+                        href={item.hrefs[i]}
+                        className="block text-text hover:text-primary transition-colors"
+                      >
+                        {line}
+                      </a>
+                    ) : (
+                      <p key={i} className="text-text">{line}</p>
+                    )
+                  ))}
                 </div>
               </div>
             ))}

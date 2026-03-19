@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Container from "@/components/ui/Container";
 import BlogCard from "@/components/shared/BlogCard";
 import { blogPosts } from "@/lib/data/blog-posts";
 
@@ -11,16 +12,19 @@ export const metadata: Metadata = {
 
 export default function NewsPage() {
   return (
-    <main className="bg-white min-h-screen">
-      <section className="pt-16 pb-20">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
-            ))}
-          </div>
+    <section className="py-16 lg:py-24">
+      <Container>
+        <div className="text-center mb-12">
+          <h1 className="font-heading text-3xl lg:text-4xl font-bold text-text-dark">
+            News &amp; Media
+          </h1>
         </div>
-      </section>
-    </main>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogPosts.map((post) => (
+            <BlogCard key={post.slug} post={post} />
+          ))}
+        </div>
+      </Container>
+    </section>
   );
 }

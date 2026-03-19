@@ -13,18 +13,18 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
+    <header className="sticky top-0 z-50 bg-white">
       <TopBar />
-      <div className="bg-white border-b border-border/50">
+      <div className="bg-white">
         <Container>
           <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex-shrink-0 -mb-8">
+            <Link href="/" className="flex-shrink-0">
               <Image
-                src="/images/logo.png"
+                src="/images/Costa Blanca Media Logotype.jpg"
                 alt="Costa Blanca Media logo"
-                width={130}
-                height={130}
-                className="rounded-full"
+                width={275}
+                height={75}
+                className="object-contain mt-5"
                 priority
               />
             </Link>
@@ -38,7 +38,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`text-sm font-medium transition-colors hover:text-primary ${
+                    className={`text-[16px] font-medium transition-colors hover:text-primary ${
                       isActive ? "text-primary" : "text-text-dark"
                     }`}
                   >

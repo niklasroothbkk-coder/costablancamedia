@@ -15,7 +15,7 @@ export default function ProjectsPage() {
     <section className="py-16 lg:py-24">
       <Container>
         <div className="text-center mb-12">
-          <h1 className="font-heading text-4xl lg:text-5xl font-bold text-text-dark">
+          <h1 className="font-heading text-3xl lg:text-4xl font-bold text-text-dark">
             A Few Projects
           </h1>
         </div>

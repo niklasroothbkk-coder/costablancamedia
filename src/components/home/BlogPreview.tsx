@@ -8,8 +8,8 @@ export default function BlogPreview() {
     <section className="py-16 lg:py-24">
       <div className="max-w-[1200px] mx-auto px-4">
         <div className="text-center mb-12">
-          <p className="text-[#1BA8C8] font-semibold text-sm mb-2">
-            // News &amp; Articles
+          <p className="font-semibold text-[20px] mb-2">
+            <span className="text-primary">//</span> <span className="text-text-dark">News &amp; Articles</span>
           </p>
           <h2 className="font-heading text-[28px] lg:text-[32px] font-bold text-[#1a1a2e]">
             Latest from the blog
