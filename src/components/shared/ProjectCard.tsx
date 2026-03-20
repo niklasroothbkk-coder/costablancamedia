@@ -19,6 +19,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           width={300}
           height={200}
           className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+          style={project.imageScale ? { maxWidth: `${project.imageScale}%`, height: 'auto' } : undefined}
         />
       </div>
       <div className="p-6">

@@ -6,7 +6,13 @@ import { blogPosts } from "@/lib/data/blog-posts";
 export const metadata: Metadata = {
   title: "News & Media",
   description:
-    "Read the latest news and articles about web development, SEO, digital marketing, and more from Costa Blanca Media.",
+    "Here you can follow the latest from Costa Blanca Media. We update News & Media as often as we have something new to share.",
+  openGraph: {
+    title: "News & Media | Costa Blanca Media",
+    description:
+      "Here you can follow the latest from Costa Blanca Media. We update News & Media as often as we have something new to share.",
+    images: [{ url: "/images/og-image.jpg" }],
+  },
   alternates: { canonical: "https://www.costablancamedia.es/news" },
 };
 

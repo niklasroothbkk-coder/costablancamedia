@@ -4,9 +4,15 @@ import ProjectCard from "@/components/shared/ProjectCard";
 import { projects } from "@/lib/data/projects";
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: "Our Projects",
   description:
-    "View our portfolio of web development projects. Costa Blanca Media has built websites for businesses across Spain and internationally.",
+    "Here are a few projects of all that Costa Blanca Media has developed. We have developed over 200 websites and are working on new ones every day.",
+  openGraph: {
+    title: "Our Projects | Costa Blanca Media",
+    description:
+      "Here are a few projects of all that Costa Blanca Media has developed. We have developed over 200 websites and are working on new ones every day.",
+    images: [{ url: "/images/og-image.jpg" }],
+  },
   alternates: { canonical: "https://www.costablancamedia.es/projects" },
 };
 

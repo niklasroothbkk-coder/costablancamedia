@@ -17,29 +17,31 @@ export default function Footer() {
               <Image
                 src="/images/CBM Footer Logo.png"
                 alt="Costa Blanca Media logo"
-                width={225}
-                height={63}
+                width={169}
+                height={47}
                 className="object-contain"
               />
             </Link>
           </div>
 
-          {/* Column 2: Services */}
+          {/* Column 2: Prime Services */}
           <div>
             <h3 className="font-heading font-bold text-lg mb-4" style={{ color: '#ffffff' }}>
-              Services
+              Prime Services
             </h3>
             <ul className="space-y-2">
-              {services.map((service) => (
-                <li key={service.slug}>
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="text-[16px] text-white hover:text-primary transition-colors"
-                  >
-                    {service.name}
-                  </Link>
-                </li>
-              ))}
+              {services
+                .filter((s) => s.slug !== "hosting-service" && s.slug !== "web-marketing")
+                .map((service) => (
+                  <li key={service.slug}>
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="text-[16px] text-white hover:text-primary transition-colors"
+                    >
+                      {service.name}
+                    </Link>
+                  </li>
+                ))}
             </ul>
           </div>
 
@@ -49,16 +51,18 @@ export default function Footer() {
               References
             </h3>
             <ul className="space-y-2">
-              {projects.map((project) => (
-                <li key={project.slug}>
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="text-[16px] text-white hover:text-primary transition-colors"
-                  >
-                    {project.name}
-                  </Link>
-                </li>
-              ))}
+              {projects
+                .filter((p) => !["sihanoukville", "caramelos-cafe", "nordic-table-tennis"].includes(p.slug))
+                .map((project) => (
+                  <li key={project.slug}>
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="text-[16px] text-white hover:text-primary transition-colors"
+                    >
+                      {project.name}
+                    </Link>
+                  </li>
+                ))}
             </ul>
           </div>
 

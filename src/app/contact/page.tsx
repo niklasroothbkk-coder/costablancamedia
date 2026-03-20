@@ -4,9 +4,15 @@ import ContactForm from "@/components/shared/ContactForm";
 import { Phone, MapPin, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact Us",
   description:
-    "Get in touch with Costa Blanca Media for web development, design, and digital marketing services in Torrevieja, Spain.",
+    "Feel free to contact us through the contact form. We get back to you within 24 hours or even faster.",
+  openGraph: {
+    title: "Contact Us | Costa Blanca Media",
+    description:
+      "Feel free to contact us through the contact form. We get back to you within 24 hours or even faster.",
+    images: [{ url: "/images/og-image.jpg" }],
+  },
   alternates: { canonical: "https://www.costablancamedia.es/contact" },
 };
 

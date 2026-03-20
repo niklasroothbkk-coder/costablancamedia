@@ -6,7 +6,13 @@ import { services } from "@/lib/data/services";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Full range of web services including web development, web design, SEO, web marketing, graphic design, web applications, and hosting from Costa Blanca Media.",
+    "Web Development with quality coding from start to finish. Stunning Web Design for your website. Web Marketing, Graphic Design, SEO and Hosting Service.",
+  openGraph: {
+    title: "Services | Costa Blanca Media",
+    description:
+      "Web Development with quality coding from start to finish. Stunning Web Design for your website. Web Marketing, Graphic Design, SEO and Hosting Service.",
+    images: [{ url: "/images/og-image.jpg" }],
+  },
   alternates: { canonical: "https://www.costablancamedia.es/services" },
 };
 

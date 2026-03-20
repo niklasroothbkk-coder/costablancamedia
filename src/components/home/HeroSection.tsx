@@ -89,6 +89,10 @@ export default function HeroSection() {
               city of Torrevieja! With a strong focus on creativity, innovation,
               and quality, we are dedicated to providing outstanding digital
               solutions to your business.
+              <br /><br />
+              We specialize in helping brands grow their online presence through
+              tailored strategies and cutting-edge technology. Let us bring your
+              vision to life and take your business to the next level.
             </p>
             <div className="flex items-center gap-4 p-4 bg-light-gray rounded-lg">
               <Image

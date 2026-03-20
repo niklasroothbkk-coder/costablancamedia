@@ -8,9 +8,15 @@ import { services } from "@/lib/data/services";
 import { Check } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About Costa Blanca Media",
   description:
-    "Learn about Costa Blanca Media, a Swedish-operated web agency in Torrevieja, Spain. Over 30 years of experience in web development, design, and digital marketing.",
+    "About Costa Blanca Media. We are a premier web solutions provider operated by Swedish professionals with over 30 years of experience. Located in Torrevieja.",
+  openGraph: {
+    title: "About Costa Blanca Media | Costa Blanca Media",
+    description:
+      "About Costa Blanca Media. We are a premier web solutions provider operated by Swedish professionals with over 30 years of experience. Located in Torrevieja.",
+    images: [{ url: "/images/og-image.jpg" }],
+  },
   alternates: { canonical: "https://www.costablancamedia.es/about" },
 };
 
