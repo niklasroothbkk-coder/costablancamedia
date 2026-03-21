@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import ContactForm from "@/components/shared/ContactForm";
-import { Phone, MapPin, Mail } from "lucide-react";
+import { Phone, MapPin, Mail, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -33,6 +33,13 @@ const contactInfo = [
     lines: ["support@costablancamedia.es", "info@costablancamedia.es"],
     hrefs: ["mailto:support@costablancamedia.es", "mailto:info@costablancamedia.es"],
   },
+  {
+    icon: MessageCircle,
+    title: "WhatsApp",
+    lines: ["Feel free to contact us through WhatsApp by clicking here."],
+    hrefs: ["https://wa.me/46729631278"],
+    iconHref: "https://wa.me/46729631278",
+  },
 ];
 
 export default function ContactPage() {
@@ -58,9 +65,15 @@ export default function ContactPage() {
                 key={item.title}
                 className="flex items-start gap-5"
               >
-                <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-                  <item.icon size={28} className="text-white" />
-                </div>
+                {item.iconHref ? (
+                  <a href={item.iconHref} target="_blank" rel="noopener noreferrer" className="w-16 h-16 rounded-full bg-primary flex items-center justify-center flex-shrink-0 hover:bg-primary/80 transition-colors">
+                    <item.icon size={28} className="text-white" />
+                  </a>
+                ) : (
+                  <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                    <item.icon size={28} className="text-white" />
+                  </div>
+                )}
                 <div>
                   <h3 className="font-heading font-bold text-text-dark text-xl mb-1">
                     {item.title}
@@ -70,6 +83,8 @@ export default function ContactPage() {
                       <a
                         key={i}
                         href={item.hrefs[i]}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="block text-text hover:text-primary transition-colors"
                       >
                         {line}
