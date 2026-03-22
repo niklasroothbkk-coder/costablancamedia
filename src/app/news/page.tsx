@@ -24,6 +24,9 @@ export default function NewsPage() {
           <h1 className="font-heading text-3xl lg:text-4xl font-bold text-text-dark">
             News &amp; Media
           </h1>
+          <h2 className="text-text text-lg mt-3">
+            Latest Updates from Costa Blanca Media
+          </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
