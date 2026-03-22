@@ -52,6 +52,9 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
+          <label className="block text-sm font-medium text-text-dark mb-1">
+            Name <span className="text-red-500">*</span>
+          </label>
           <input
             {...register("name", { required: "Name is required" })}
             placeholder="Name"
@@ -62,6 +65,9 @@ export default function ContactForm() {
           )}
         </div>
         <div>
+          <label className="block text-sm font-medium text-text-dark mb-1">
+            Email <span className="text-red-500">*</span>
+          </label>
           <input
             {...register("email", {
               required: "Email is required",
@@ -80,23 +86,41 @@ export default function ContactForm() {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input
-          {...register("subject")}
-          placeholder="Subject"
-          className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors"
-        />
-        <input
-          {...register("phone")}
-          placeholder="Phone"
-          className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors"
+        <div>
+          <label className="block text-sm font-medium text-text-dark mb-1">
+            Subject <span className="text-red-500">*</span>
+          </label>
+          <input
+            {...register("subject", { required: "Subject is required" })}
+            placeholder="Subject"
+            className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors"
+          />
+          {errors.subject && (
+            <p className="text-red-500 text-xs mt-1">{errors.subject.message}</p>
+          )}
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-text-dark mb-1">
+            Phone
+          </label>
+          <input
+            {...register("phone")}
+            placeholder="Phone"
+            className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors"
+          />
+        </div>
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-text-dark mb-1">
+          Message <span className="text-red-500">*</span>
+        </label>
+        <textarea
+          {...register("message", { required: "Message is required" })}
+          placeholder="Message"
+          rows={5}
+          className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors resize-none"
         />
       </div>
-      <textarea
-        {...register("message", { required: "Message is required" })}
-        placeholder="Message"
-        rows={5}
-        className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors resize-none"
-      />
       {errors.message && (
         <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>
       )}
