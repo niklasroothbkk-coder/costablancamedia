@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Services | Costa Blanca Media",
     description:
       "Web Development with quality coding from start to finish. Stunning Web Design for your website. Web Marketing, Graphic Design, SEO and Hosting Service.",
-    images: [{ url: "/images/og-image.jpg" }],
+    images: [{ url: "/api/og?title=Services&subtitle=Web Development, Design, SEO and Hosting" }],
   },
   alternates: { canonical: "https://www.costablancamedia.es/services" },
 };

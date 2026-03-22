@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Our Projects | Costa Blanca Media",
     description:
       "Here are a few projects of all that Costa Blanca Media has developed. We have developed over 200 websites and are working on new ones every day.",
-    images: [{ url: "/images/og-image.jpg" }],
+    images: [{ url: "/api/og?title=Our Projects&subtitle=Web Development Portfolio" }],
   },
   alternates: { canonical: "https://www.costablancamedia.es/projects" },
 };

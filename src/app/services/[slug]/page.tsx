@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${service.name} | Costa Blanca Media`,
       description: service.metaDescription,
-      images: [{ url: "/images/og-image.jpg" }],
+      images: [{ url: `/api/og?title=${encodeURIComponent(service.name)}&subtitle=Costa Blanca Media` }],
     },
     alternates: {
       canonical: `https://www.costablancamedia.es/services/${slug}`,

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "About Costa Blanca Media | Costa Blanca Media",
     description:
       "About Costa Blanca Media. We are a premier web solutions provider operated by Swedish professionals with over 30 years of experience. Located in Torrevieja.",
-    images: [{ url: "/images/og-image.jpg" }],
+    images: [{ url: "/api/og?title=About Us&subtitle=Swedish Web Agency in Torrevieja" }],
   },
   alternates: { canonical: "https://www.costablancamedia.es/about" },
 };

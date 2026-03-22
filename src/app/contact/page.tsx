@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Contact Us | Costa Blanca Media",
     description:
       "Feel free to contact us through the contact form. We get back to you within 24 hours or even faster.",
-    images: [{ url: "/images/og-image.jpg" }],
+    images: [{ url: "/api/og?title=Contact Us&subtitle=Get in Touch with Costa Blanca Media" }],
   },
   alternates: { canonical: "https://www.costablancamedia.es/contact" },
 };

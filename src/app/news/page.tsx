@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "News & Media | Costa Blanca Media",
     description:
       "Here you can follow the latest from Costa Blanca Media. We update News & Media as often as we have something new to share.",
-    images: [{ url: "/images/og-image.jpg" }],
+    images: [{ url: "/api/og?title=News %26 Media&subtitle=Latest from Costa Blanca Media" }],
   },
   alternates: { canonical: "https://www.costablancamedia.es/news" },
 };

@@ -24,6 +24,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.excerpt,
+    openGraph: {
+      title: `${post.title} | Costa Blanca Media`,
+      description: post.excerpt,
+      images: [{ url: `/api/og?title=${encodeURIComponent(post.title)}&subtitle=News %26 Media` }],
+    },
     alternates: {
       canonical: `https://www.costablancamedia.es/news/${slug}`,
     },

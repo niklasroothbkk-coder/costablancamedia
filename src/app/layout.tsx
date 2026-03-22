@@ -41,7 +41,7 @@ export const metadata: Metadata = {
       "Costa Blanca Media - Scandinavian Web Development & Design in Torrevieja, with Swedish Management. Pros on Web Development, Social Marketing, SEO, Safe Hosting.",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/api/og?title=Costa Blanca Media&subtitle=Web Design and Development in Torrevieja",
         width: 1200,
         height: 630,
         alt: "Costa Blanca Media - Swedish Web Agency in Torrevieja",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: "Costa Blanca Media - Web Design and Development in Torrevieja",
     description:
       "Costa Blanca Media - Scandinavian Web Development & Design in Torrevieja, with Swedish Management.",
-    images: ["/images/og-image.jpg"],
+    images: ["/api/og?title=Costa Blanca Media&subtitle=Web Design and Development in Torrevieja"],
   },
   alternates: {
     canonical: "https://www.costablancamedia.es",
