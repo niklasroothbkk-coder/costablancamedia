@@ -13,12 +13,16 @@ export interface Project {
   quote?: string;
   quoteImage?: string;
   imageScale?: number;
+  h1Title?: string;
+  h2Subtitle?: string;
 }
 
 export const projects: Project[] = [
   {
     slug: "torrevieja-rentals",
     name: "Torrevieja Rentals",
+    h1Title: "Project Torrevieja Rentals",
+    h2Subtitle: "- Your home away from home.",
     services: ["Web Development"],
     image: "/images/projects/torrevieja-rentals.jpg",
     heroImage: "/images/projects/torrevieja-rentals-hero.png",
@@ -38,6 +42,8 @@ export const projects: Project[] = [
   {
     slug: "sihanoukville",
     name: "Sihanoukville.com",
+    h1Title: "Project Sihanoukville.com",
+    h2Subtitle: "- what a super idea!",
     services: ["Web Development"],
     image: "/images/projects/SHV.jpg",
     imageScale: 56,
@@ -59,6 +65,8 @@ export const projects: Project[] = [
   {
     slug: "quoteme",
     name: "QuoteMe",
+    h1Title: "Project QuoteMe",
+    h2Subtitle: "- what a brilliant idea!",
     services: ["Web Development"],
     image: "/images/projects/quoteme.jpg",
     heroImage: "/images/projects/quoteme-hero.webp",
@@ -78,6 +86,8 @@ export const projects: Project[] = [
   {
     slug: "phnom-penh-real-estate",
     name: "Phnom Penh Real Estate",
+    h1Title: "Project Phnom Penh Real Estate",
+    h2Subtitle: "- The No. 1 Choice in Phnom Penh.",
     services: ["SEO", "Web Development"],
     image: "/images/projects/PPRE-Logo.png",
     imageScale: 56,
@@ -99,6 +109,8 @@ export const projects: Project[] = [
   {
     slug: "lotta-spjut-business",
     name: "Lotta Spjut Business",
+    h1Title: "Project Lotta Spjut",
+    h2Subtitle: "- an entrepreneur like no other.",
     services: ["Web Development"],
     image: "/images/projects/lotta-spjut.jpg",
     heroImage: "/images/projects/lotta-spjut-hero.webp",
@@ -118,6 +130,8 @@ export const projects: Project[] = [
   {
     slug: "nordic-table-tennis",
     name: "Nordic Table Tennis",
+    h1Title: "Project Nordic Table Tennis",
+    h2Subtitle: "- Training camps in Spain and Sweden.",
     services: ["Web Development"],
     image: "/images/projects/nordic-table-tennis.jpg",
     heroImage: "/images/projects/nordic-table-tennis-hero.webp",
@@ -138,6 +152,8 @@ export const projects: Project[] = [
   {
     slug: "caramelos-cafe",
     name: "Caramelos Cafe",
+    h1Title: "Project Caramelos Cafe",
+    h2Subtitle: "- Swedish candies in Torrevieja.",
     services: ["Web Development"],
     image: "/images/projects/caramelos-cafe.jpg",
     heroImage: "/images/projects/caramelos-cafe-hero.webp",
@@ -157,6 +173,8 @@ export const projects: Project[] = [
   {
     slug: "torrevieja-plus",
     name: "Torrevieja Plus",
+    h1Title: "Project Torrevieja Plus",
+    h2Subtitle: "- the only city guide you need!",
     services: ["Web Development"],
     image: "/images/projects/TV+.png",
     imageScale: 56,

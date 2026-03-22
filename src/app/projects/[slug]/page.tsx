@@ -19,12 +19,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getProjectBySlug(slug);
   if (!project) return {};
   return {
-    title: project.name,
+    title: project.h1Title || project.name,
     description: project.description,
     openGraph: {
-      title: `${project.name} | Costa Blanca Media`,
+      title: `${project.h1Title || project.name} | Costa Blanca Media`,
       description: project.description,
-      images: [{ url: `/api/og?title=${encodeURIComponent(project.name)}&subtitle=Project Reference` }],
+      images: [{ url: `/api/og?title=${encodeURIComponent(project.h1Title || project.name)}&subtitle=Project Reference` }],
     },
     alternates: {
       canonical: `https://www.costablancamedia.es/projects/${slug}`,
@@ -67,9 +67,15 @@ export default async function ProjectPage({ params }: Props) {
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Main Content */}
           <div className="lg:col-span-2">
-            <h1 className="font-heading text-2xl lg:text-3xl font-bold text-text-dark mb-8">
-              Here to know about this project
+            <h1 className="font-heading text-2xl lg:text-3xl font-bold text-text-dark">
+              {project.h1Title || project.name}
             </h1>
+            {project.h2Subtitle && (
+              <h2 className="text-lg text-text font-medium mt-1 mb-8">
+                {project.h2Subtitle}
+              </h2>
+            )}
+            {!project.h2Subtitle && <div className="mb-8" />}
 
             <div className="space-y-6">
               {descriptions.map((paragraph, i) => (
@@ -99,9 +105,9 @@ export default async function ProjectPage({ params }: Props) {
           {/* Sidebar - Project Information */}
           <aside>
             <div className="bg-white rounded-lg border border-border p-8 space-y-6">
-              <h2 className="font-heading text-xl font-bold text-text-dark">
+              <h3 className="font-heading text-xl font-bold text-text-dark">
                 Project information
-              </h2>
+              </h3>
 
               {project.client && (
                 <div className="border-b border-border pb-4">
