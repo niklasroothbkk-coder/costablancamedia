@@ -104,11 +104,17 @@ export default async function ServicePage({ params }: Props) {
               {service.name}
             </h1>
 
-            {service.description.map((paragraph, i) => (
-              <p key={i} className={`leading-relaxed mb-4 ${i === 0 ? "text-text-dark font-semibold" : "text-text"}`}>
-                {paragraph}
-              </p>
-            ))}
+            {service.description.map((paragraph, i) =>
+              i === 0 ? (
+                <h2 key={i} className="leading-relaxed mb-4 text-text-dark font-semibold text-lg">
+                  {paragraph}
+                </h2>
+              ) : (
+                <p key={i} className="leading-relaxed mb-4 text-text">
+                  {paragraph}
+                </p>
+              )
+            )}
 
             {/* Hosting packages - only for hosting service */}
             {slug === "hosting-service" && (
