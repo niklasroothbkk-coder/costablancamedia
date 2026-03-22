@@ -42,8 +42,35 @@ export default async function ServicePage({ params }: Props) {
 
   const relatedProjects = projects.slice(0, 3);
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.name,
+    description: service.metaDescription,
+    provider: {
+      "@type": "LocalBusiness",
+      name: "Costa Blanca Media",
+      url: "https://www.costablancamedia.es",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Torrevieja",
+        addressRegion: "Alicante",
+        addressCountry: "ES",
+      },
+    },
+    areaServed: {
+      "@type": "Place",
+      name: "Costa Blanca, Spain",
+    },
+    url: `https://www.costablancamedia.es/services/${slug}`,
+  };
+
   return (
     <section className="py-8 lg:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <Container>
         <Breadcrumbs
           items={[
