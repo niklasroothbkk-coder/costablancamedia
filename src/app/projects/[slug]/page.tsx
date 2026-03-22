@@ -77,6 +77,10 @@ export default async function ProjectPage({ params }: Props) {
             )}
             {!project.h2Subtitle && <div className="mb-8" />}
 
+            <Link href="/projects" className="inline-block text-sm text-primary hover:text-primary-dark transition-colors mb-6">
+              ← Back to all projects
+            </Link>
+
             <div className="space-y-6">
               {descriptions.map((paragraph, i) => (
                 <p key={i} className="text-text leading-relaxed">

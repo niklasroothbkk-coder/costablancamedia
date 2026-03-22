@@ -99,9 +99,13 @@ export default async function BlogPostPage({ params }: Props) {
               {post.date}
             </div>
 
-            <h1 className="font-heading text-3xl lg:text-4xl font-bold text-text-dark mb-8">
+            <h1 className="font-heading text-3xl lg:text-4xl font-bold text-text-dark mb-4">
               {post.title}
             </h1>
+
+            <Link href="/news" className="inline-block text-sm text-primary hover:text-primary-dark transition-colors mb-8">
+              ← Back to all articles
+            </Link>
 
             {post.content.map((paragraph, i) => {
               if (paragraph.startsWith("HEADING:")) {

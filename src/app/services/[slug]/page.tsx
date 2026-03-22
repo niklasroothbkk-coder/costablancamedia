@@ -131,6 +131,10 @@ export default async function ServicePage({ params }: Props) {
               {service.name}
             </h1>
 
+            <Link href="/services" className="inline-block text-sm text-primary hover:text-primary-dark transition-colors mb-6">
+              ← Back to all services
+            </Link>
+
             {service.description.map((paragraph, i) =>
               i === 0 ? (
                 <h2 key={i} className="leading-relaxed mb-4 text-text-dark font-semibold text-lg">
@@ -188,6 +192,26 @@ export default async function ServicePage({ params }: Props) {
               <p className="text-text-dark font-heading font-bold text-lg">
                 Contact us for a free consultation Monday to Friday, from 10:00 to 17:00.
               </p>
+            </div>
+
+            {/* Other Services */}
+            <div className="mt-12 pt-8 border-t border-border">
+              <h3 className="font-heading font-bold text-text-dark text-xl mb-4">
+                Our other services
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {services
+                  .filter((s) => s.slug !== slug)
+                  .map((s) => (
+                    <Link
+                      key={s.slug}
+                      href={`/services/${s.slug}`}
+                      className="text-sm text-primary hover:text-primary-dark transition-colors"
+                    >
+                      {s.name}
+                    </Link>
+                  ))}
+              </div>
             </div>
           </div>
         </div>
