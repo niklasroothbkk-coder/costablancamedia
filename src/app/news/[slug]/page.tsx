@@ -37,8 +37,38 @@ export default async function BlogPostPage({ params }: Props) {
 
   const otherPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    image: `https://www.costablancamedia.es${post.image}`,
+    datePublished: post.date,
+    author: {
+      "@type": "Organization",
+      name: "Costa Blanca Media",
+      url: "https://www.costablancamedia.es",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Costa Blanca Media",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.costablancamedia.es/images/Costa Blanca Media Logotype.jpg",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.costablancamedia.es/news/${slug}`,
+    },
+  };
+
   return (
     <section className="py-8 lg:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <Container>
         <Breadcrumbs
           items={[

@@ -60,12 +60,20 @@ export const metadata: Metadata = {
   },
 };
 
-const organizationSchema = {
+const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "LocalBusiness",
+  "@id": "https://www.costablancamedia.es/#business",
   name: "Costa Blanca Media",
   url: "https://www.costablancamedia.es",
   logo: "https://www.costablancamedia.es/images/Costa Blanca Media Logotype.jpg",
+  image: "https://www.costablancamedia.es/images/og-image.jpg",
+  telephone: "+34-600-000-000",
+  email: "info@costablancamedia.es",
+  description:
+    "Swedish-operated web agency in Torrevieja, Spain. Web development, design, SEO, and hosting services.",
+  openingHours: "Mo-Fr 10:00-17:00",
+  priceRange: "$$",
   contactPoint: {
     "@type": "ContactPoint",
     email: "info@costablancamedia.es",
@@ -78,7 +86,25 @@ const organizationSchema = {
     addressRegion: "Alicante",
     addressCountry: "ES",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 37.9786,
+    longitude: -0.6823,
+  },
   sameAs: ["https://www.facebook.com/costablancamedia.es"],
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.costablancamedia.es",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -94,7 +120,13 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
+            __html: JSON.stringify(localBusinessSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbSchema),
           }}
         />
         <Header />
