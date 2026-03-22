@@ -55,9 +55,9 @@ export default function ServiceCard({
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
               <Icon size={20} className="text-primary" />
             </div>
-            <h3 className="font-heading font-bold text-text-dark text-[22px]">
+            <h2 className="font-heading font-bold text-text-dark text-[22px]">
               {service.name}
-            </h3>
+            </h2>
           </div>
           <p className="text-text text-sm mb-4">{service.shortDescription}</p>
           <span className="text-primary text-sm font-semibold group-hover:underline">
@@ -90,9 +90,9 @@ export default function ServiceCard({
         <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-md group-hover:bg-primary-dark transition-colors">
           <Icon size={24} className="text-white" />
         </div>
-        <h3 className="font-heading font-bold text-text-dark text-base mt-1">
+        <h2 className="font-heading font-bold text-text-dark text-base mt-1">
           {service.name}
-        </h3>
+        </h2>
       </div>
     </Link>
   );
