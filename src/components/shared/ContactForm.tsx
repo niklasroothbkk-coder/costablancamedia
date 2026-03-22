@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
 
 interface FormData {
   name: string;
@@ -10,6 +11,10 @@ interface FormData {
   phone: string;
   message: string;
 }
+
+const EMAILJS_SERVICE_ID = "service_z8csv98";
+const EMAILJS_TEMPLATE_ID = "template_lb0w37t";
+const EMAILJS_PUBLIC_KEY = "NmZE_vtJoTyrDx3Tp";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -24,24 +29,20 @@ export default function ContactForm() {
   const onSubmit = async (data: FormData) => {
     setStatus("sending");
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
           name: data.name,
           email: data.email,
           subject: data.subject,
           phone: data.phone,
           message: data.message,
-        }),
-      });
-
-      if (res.ok) {
-        setStatus("success");
-        reset();
-      } else {
-        setStatus("error");
-      }
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setStatus("success");
+      reset();
     } catch {
       setStatus("error");
     }
