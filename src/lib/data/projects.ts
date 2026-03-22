@@ -21,10 +21,10 @@ export const projects: Project[] = [
     name: "Torrevieja Rentals",
     services: ["Web Development"],
     image: "/images/projects/torrevieja-rentals.jpg",
-    heroImage: "/images/projects/torrevieja-rentals-hero.webp",
+    heroImage: "/images/projects/torrevieja-rentals-hero.png",
     url: "https://www.torreviejarentals.es",
     client: "Torrevieja Rentals",
-    category: "Graphic Design, Web Development, SEO & Marketing, Hosting",
+    category: "Web Development (WordPress), Graphic Design, SEO & Marketing, Hosting",
     timeframe: "Around 1 month. Ongoing work with marketing etc.",
     description:
       "A comprehensive rental property website for Torrevieja, featuring property listings, search functionality, and a modern responsive design.",
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     heroImage: "/images/projects/sihanhanoukville-hero.webp",
     url: "https://www.sihanoukville.com",
     client: "The Sihanoukville Group",
-    category: "Graphic Design, Web Development, SEO & Marketing, Hosting",
+    category: "Web Development (WordPress), Graphic Design, SEO & Marketing, Hosting",
     timeframe: "Around 3 months. This prime domain and site are now for sale.",
     description:
       "A travel and information portal for Sihanoukville, Cambodia, providing visitors with comprehensive guides and local information.",
@@ -64,8 +64,8 @@ export const projects: Project[] = [
     heroImage: "/images/projects/quoteme-hero.webp",
     url: "https://www.quoteme.es",
     client: "QuoteMe Ltd",
-    category: "Graphic Design, Coding, SEO & Marketing",
-    timeframe: "Around 6 months. Ongoing work with marketing etc.",
+    category: "Web Development (Next.js, Supabase, and React Native), Graphic Design, SEO & Marketing",
+    timeframe: "Around 6 months. (Rebuilt 2026). Ongoing work with marketing etc.",
     description:
       "A modern web application for generating and managing quotes, built with a focus on user experience and efficiency.",
     longDescription: [
@@ -84,8 +84,8 @@ export const projects: Project[] = [
     heroImage: "/images/projects/phnom-penh-real-estate-hero.webp",
     url: "https://www.phnompenhrealestate.net",
     client: "Phnom Penh Real Estate",
-    category: "Graphic Design, Web Development, SEO & Marketing",
-    timeframe: "Around 2 months. Ongoing work with marketing etc.",
+    category: "Web Development (Next.js, Supabase, and React Native), Graphic Design, SEO & Marketing",
+    timeframe: "Around 2 months. Ongoing work with marketing and SEO.",
     description:
       "A real estate platform for Phnom Penh, Cambodia, featuring property listings with advanced search and SEO optimization.",
     longDescription: [
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     heroImage: "/images/projects/lotta-spjut-hero.webp",
     url: "https://www.lottaspjutbusiness.com",
     client: "Lotta Spjut Business",
-    category: "Graphic design, Web Development, SEO",
+    category: "Web Development (WordPress), Graphic Design, SEO, Hosting",
     timeframe: "Around 2 weeks.",
     description:
       "A professional business website for Lotta Spjut, showcasing services and portfolio with a clean, modern design.",
@@ -123,7 +123,7 @@ export const projects: Project[] = [
     heroImage: "/images/projects/nordic-table-tennis-hero.webp",
     url: "https://www.nordictabletennis.com",
     client: "Nordic Table Tennis AB",
-    category: "Web Development, Graphic design, Marketing",
+    category: "Web Development (WordPress), Graphic Design, SEO, Hosting",
     timeframe: "Around 2 weeks.",
     description:
       "An e-commerce and information website for Nordic Table Tennis, featuring product catalogs and club information.",
@@ -143,7 +143,7 @@ export const projects: Project[] = [
     heroImage: "/images/projects/caramelos-cafe-hero.webp",
     url: "https://www.carameloscafe.com",
     client: "Caramelos Café",
-    category: "Graphic Design, Web Development, Marketing",
+    category: "Web Development (WordPress), Graphic Design, SEO, Hosting",
     timeframe: "Around 2 Weeks. Ongoing work with marketing etc.",
     description:
       "A vibrant website for Caramelos Cafe, featuring menus, location information, and an inviting design that reflects the cafe's atmosphere.",
@@ -163,15 +163,16 @@ export const projects: Project[] = [
     heroImage: "/images/projects/TorreviejaPlus.jpg",
     url: "https://www.torreviejaplus.es",
     client: "Torrevieja Plus",
-    category: "Web Development, Graphic Design, Marketing",
-    timeframe: "TBD",
+    category: "Web Development (Next.js, Supabase, and React Native), Graphic Design, SEO, Social Media Marketing, Hosting",
+    timeframe: "7-8 weeks, and ongoing work with SEO and Marketing.",
     description:
       "A comprehensive platform for Torrevieja, providing locals and visitors with information and services.",
     longDescription: [
-      "Coming soon.",
+      "TorreviejaPlus is a bilingual local guide and venue directory platform built for tourists and expats living in or visiting Torrevieja on Spain's Costa Blanca. The platform covers everything from restaurants, bars, and beach clubs to events, deals, and local news — all presented in both English and Swedish to serve the region's large international community.",
+      "TorreviejaPlus brings together venue listings, recurring events, exclusive deals, and up-to-date local news in one place, making it easy for visitors and residents to discover what the city has to offer. Venue owners benefit from increased visibility through a tiered subscription model, while users enjoy a seamless experience across both web and mobile.",
+      "Costa Blanca Media built TorreviejaPlus from the ground up using a modern tech stack including Next.js, Supabase, and React Native — ensuring fast performance, scalable infrastructure, and a consistent experience across web and app. The platform features automated Swedish translations via DeepL, interactive maps powered by Mapbox, and a fully custom admin panel for managing venues, events, deals, and editorial content.",
+      "From architecture and development to SEO strategy and ongoing optimization, we have been involved at every stage of TorreviejaPlus — and continue to grow it into the go-to digital guide for life on the Costa Blanca.",
     ],
-    quote:
-      "Coming soon.",
   },
 ];
 

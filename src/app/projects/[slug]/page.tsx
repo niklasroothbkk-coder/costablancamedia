@@ -121,7 +121,7 @@ export default async function ProjectPage({ params }: Props) {
 
               {project.category && (
                 <div className="border-b border-border pb-4">
-                  <h3 className="text-primary font-bold mb-1">Category</h3>
+                  <h3 className="text-primary font-bold mb-1">Work Done</h3>
                   <p className="text-text-dark">{project.category}</p>
                 </div>
               )}
