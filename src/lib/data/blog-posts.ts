@@ -119,7 +119,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "5-tips-to-help-you-with-planning-your-website",
-    title: "5 tips to help you with planning your website",
+    title: "5 tips to help you with planning",
     date: "October 15, 2024",
     excerpt:
       "Having a website offers several significant benefits for individuals and businesses alike. However, it is important to plan your site carefully.",

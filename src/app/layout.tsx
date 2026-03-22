@@ -18,7 +18,7 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: {
-    default: "Costa Blanca Media - Web Design and Development in Torrevieja",
+    default: "Costa Blanca Media - Web Design & Development in Torrevieja",
     template: "%s | Costa Blanca Media",
   },
   description:
@@ -36,12 +36,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.costablancamedia.es",
     siteName: "Costa Blanca Media",
-    title: "Costa Blanca Media - Web Design and Development in Torrevieja",
+    title: "Costa Blanca Media - Web Design & Development in Torrevieja",
     description:
       "Costa Blanca Media - Scandinavian Web Development & Design in Torrevieja, with Swedish Management. Pros on Web Development, Social Marketing, SEO, Safe Hosting.",
     images: [
       {
-        url: "/api/og?title=Costa Blanca Media&subtitle=Web Design and Development in Torrevieja",
+        url: "/api/og?title=Costa Blanca Media&subtitle=Web Design & Development in Torrevieja",
         width: 1200,
         height: 630,
         alt: "Costa Blanca Media - Swedish Web Agency in Torrevieja",
@@ -50,10 +50,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Costa Blanca Media - Web Design and Development in Torrevieja",
+    title: "Costa Blanca Media - Web Design & Development in Torrevieja",
     description:
       "Costa Blanca Media - Scandinavian Web Development & Design in Torrevieja, with Swedish Management.",
-    images: ["/api/og?title=Costa Blanca Media&subtitle=Web Design and Development in Torrevieja"],
+    images: ["/api/og?title=Costa Blanca Media&subtitle=Web Design & Development in Torrevieja"],
   },
   alternates: {
     canonical: "https://www.costablancamedia.es",
