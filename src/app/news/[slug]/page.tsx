@@ -114,7 +114,7 @@ export default async function BlogPostPage({ params }: Props) {
               if (paragraph.startsWith("IMAGERIGHT:")) {
                 const src = paragraph.replace("IMAGERIGHT:", "");
                 return (
-                  <Image key={i} src={src} alt="" width={400} height={300} className="float-right ml-6 mb-4 rounded-lg object-cover w-1/2" />
+                  <Image key={i} src={src} alt={`${post.title} illustration`} width={400} height={300} className="float-right ml-6 mb-4 rounded-lg object-cover w-1/2" />
                 );
               }
               if (paragraph.startsWith("IMAGE:")) {
@@ -122,7 +122,7 @@ export default async function BlogPostPage({ params }: Props) {
                 return (
                   <div key={i} className={`grid gap-4 my-6 ${images.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
                     {images.map((src, j) => (
-                      <Image key={j} src={src} alt="" width={600} height={400} className="rounded-lg object-cover w-full" />
+                      <Image key={j} src={src} alt={`${post.title} - image ${j + 1}`} width={600} height={400} className="rounded-lg object-cover w-full" />
                     ))}
                   </div>
                 );

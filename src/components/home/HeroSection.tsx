@@ -53,7 +53,7 @@ export default function HeroSection() {
             <div className="absolute -bottom-20 -left-10 w-32 h-32 pointer-events-none hidden lg:block">
               <Image
                 src="/images/circle-text.png"
-                alt=""
+                alt="Costa Blanca Media - Web Design and Development"
                 width={128}
                 height={128}
                 className="animate-rotate-slow opacity-80 w-auto h-auto"
