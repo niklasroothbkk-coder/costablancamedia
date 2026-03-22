@@ -24,6 +24,9 @@ export default function ProjectsPage() {
           <h1 className="font-heading text-3xl lg:text-4xl font-bold text-text-dark">
             A Few Projects
           </h1>
+          <h2 className="text-text text-lg mt-3">
+            Web Development Portfolio — Over 200 Websites Delivered
+          </h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (

@@ -52,9 +52,9 @@ export default function ContactPage() {
             <h1 className="font-heading text-3xl lg:text-4xl font-bold text-text-dark mb-2">
               Request a quote for work
             </h1>
-            <p className="text-text mb-8">
-              Feel free to contact us through the contact form.
-            </p>
+            <h2 className="text-text text-lg mb-8">
+              Get in Touch — We Respond Within 24 Hours
+            </h2>
             <ContactForm />
           </div>
 
