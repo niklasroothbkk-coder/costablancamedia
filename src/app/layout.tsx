@@ -24,6 +24,15 @@ export const metadata: Metadata = {
   description:
     "Costa Blanca Media - Scandinavian Web Development & Design in Torrevieja, with Swedish Management. Pros on Web Development, Social Marketing, SEO, Safe Hosting.",
   metadataBase: new URL("https://www.costablancamedia.es"),
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
   robots: {
     index: true,
     follow: true,
