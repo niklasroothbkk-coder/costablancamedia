@@ -1,10 +1,7 @@
 import BlogCard from "@/components/shared/BlogCard";
-import { getBlogPosts } from "@/lib/data/get-data";
-import type { Locale } from "@/lib/i18n/config";
+import { blogPosts } from "@/lib/data/blog-posts";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-export default function BlogPreview({ dict, locale }: { dict: any; locale: string }) {
-  const blogPosts = getBlogPosts(locale as Locale);
+export default function BlogPreview() {
   const latestPosts = blogPosts.slice(0, 3);
 
   return (
@@ -12,15 +9,15 @@ export default function BlogPreview({ dict, locale }: { dict: any; locale: strin
       <div className="max-w-[1200px] mx-auto px-4">
         <div className="text-center mb-12">
           <p className="font-semibold text-[20px] mb-2">
-            <span className="text-primary">//</span> <span className="text-text-dark">{dict.blogPreview.subtitle}</span>
+            <span className="text-primary">//</span> <span className="text-text-dark">News &amp; Articles</span>
           </p>
           <h2 className="font-heading text-[28px] lg:text-[32px] font-bold text-[#1a1a2e]">
-            {dict.blogPreview.title}
+            Latest from the blog
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {latestPosts.map((post) => (
-            <BlogCard key={post.slug} post={post} locale={locale} />
+            <BlogCard key={post.slug} post={post} />
           ))}
         </div>
       </div>

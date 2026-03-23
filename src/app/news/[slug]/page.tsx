@@ -4,35 +4,23 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import BlogCard from "@/components/shared/BlogCard";
-import { blogPosts as blogPostsEn } from "@/lib/data/blog-posts";
-import { getBlogPosts, getBlogPostBySlug } from "@/lib/data/get-data";
-import { getDictionary } from "@/lib/i18n/dictionaries";
-import { localePath, locales, type Locale } from "@/lib/i18n/config";
+import { blogPosts, getBlogPostBySlug } from "@/lib/data/blog-posts";
 import Link from "next/link";
 import { Calendar } from "lucide-react";
 import SidebarSearch from "@/components/shared/SidebarSearch";
 
 interface Props {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  const params: { locale: string; slug: string }[] = [];
-  for (const locale of locales) {
-    for (const p of blogPostsEn) {
-      params.push({ locale, slug: p.slug });
-    }
-  }
-  return params;
+  return blogPosts.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug } = await params;
-  const post = getBlogPostBySlug(slug, locale as Locale);
+  const { slug } = await params;
+  const post = getBlogPostBySlug(slug);
   if (!post) return {};
-  const baseUrl = "https://www.costablancamedia.es";
-  const path = localePath(`/news/${slug}`, locale as Locale);
-
   return {
     title: post.title,
     description: post.excerpt,
@@ -42,22 +30,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [{ url: `/api/og?title=${encodeURIComponent(post.title)}&subtitle=News %26 Media` }],
     },
     alternates: {
-      canonical: `${baseUrl}${path}`,
-      languages: {
-        en: `${baseUrl}/news/${slug}`,
-        sv: `${baseUrl}/sv/news/${slug}`,
-      },
+      canonical: `https://www.costablancamedia.es/news/${slug}`,
     },
   };
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const { locale, slug } = await params;
-  const post = getBlogPostBySlug(slug, locale as Locale);
+  const { slug } = await params;
+  const post = getBlogPostBySlug(slug);
   if (!post) notFound();
 
-  const dict = await getDictionary(locale as Locale);
-  const blogPosts = getBlogPosts(locale as Locale);
   const otherPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
 
   const articleSchema = {
@@ -82,7 +64,7 @@ export default async function BlogPostPage({ params }: Props) {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.costablancamedia.es${localePath(`/news/${slug}`, locale as Locale)}`,
+      "@id": `https://www.costablancamedia.es/news/${slug}`,
     },
   };
 
@@ -95,8 +77,8 @@ export default async function BlogPostPage({ params }: Props) {
       <Container>
         <Breadcrumbs
           items={[
-            { name: dict.nav.home, href: localePath("/", locale as Locale) },
-            { name: dict.nav.newsMedia, href: localePath("/news", locale as Locale) },
+            { name: "Home", href: "/" },
+            { name: "News & Media", href: "/news" },
             { name: post.title },
           ]}
         />
@@ -121,8 +103,8 @@ export default async function BlogPostPage({ params }: Props) {
               {post.title}
             </h1>
 
-            <Link href={localePath("/news", locale as Locale)} className="inline-block text-sm text-primary hover:text-primary-dark transition-colors mb-8">
-              {dict.common.backToAllArticles}
+            <Link href="/news" className="inline-block text-sm text-primary hover:text-primary-dark transition-colors mb-8">
+              ← Back to all articles
             </Link>
 
             {post.content.map((paragraph, i) => {
@@ -176,7 +158,7 @@ export default async function BlogPostPage({ params }: Props) {
                     const linkMatch = part.match(/\[(.*?)\]\((.*?)\)/);
                     if (linkMatch) {
                       return (
-                        <Link key={j} href={localePath(linkMatch[2], locale as Locale)} className="text-primary hover:underline">
+                        <Link key={j} href={linkMatch[2]} className="text-primary hover:underline">
                           {linkMatch[1]}
                         </Link>
                       );
@@ -192,11 +174,11 @@ export default async function BlogPostPage({ params }: Props) {
               <div className="mt-12 pt-8 border-t border-border space-y-4">
                 {post.categories && post.categories.length > 0 && (
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="font-heading font-bold text-text-dark text-lg">{dict.common.postedIn}</span>
+                    <span className="font-heading font-bold text-text-dark text-lg">Posted in</span>
                     {post.categories.map((cat) => (
                       <Link
                         key={cat}
-                        href={`${localePath("/news", locale as Locale)}?category=${encodeURIComponent(cat)}`}
+                        href={`/news?category=${encodeURIComponent(cat)}`}
                         className="px-4 py-1.5 bg-primary text-white text-sm font-medium rounded hover:bg-primary-dark transition-colors"
                       >
                         {cat}
@@ -206,11 +188,11 @@ export default async function BlogPostPage({ params }: Props) {
                 )}
                 {post.tags && post.tags.length > 0 && (
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="font-heading font-bold text-text-dark text-lg">{dict.common.tags}</span>
+                    <span className="font-heading font-bold text-text-dark text-lg">Tags</span>
                     {post.tags.map((tag) => (
                       <Link
                         key={tag}
-                        href={`${localePath("/news", locale as Locale)}?tag=${encodeURIComponent(tag)}`}
+                        href={`/news?tag=${encodeURIComponent(tag)}`}
                         className="px-4 py-1.5 border-2 border-primary text-primary text-sm font-medium rounded hover:bg-primary hover:text-white transition-colors"
                       >
                         {tag}
@@ -225,8 +207,6 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Sidebar - 1/3 width */}
           <aside className="lg:w-1/3 space-y-8">
             <SidebarSearch
-              locale={locale}
-              dict={dict}
               posts={blogPosts.map((p) => ({
                 slug: p.slug,
                 title: p.title,
@@ -241,11 +221,11 @@ export default async function BlogPostPage({ params }: Props) {
         {otherPosts.length > 0 && (
           <div className="mt-16">
             <h2 className="font-heading text-2xl font-bold text-text-dark mb-8 text-center">
-              {dict.common.moreArticles}
+              More Articles
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {otherPosts.map((p) => (
-                <BlogCard key={p.slug} post={p} locale={locale} />
+                <BlogCard key={p.slug} post={p} />
               ))}
             </div>
           </div>

@@ -2,64 +2,47 @@ import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import ContactForm from "@/components/shared/ContactForm";
 import { Phone, MapPin, Mail, MessageCircle } from "lucide-react";
-import { getDictionary } from "@/lib/i18n/dictionaries";
-import { localePath, type Locale } from "@/lib/i18n/config";
 
-interface Props {
-  params: Promise<{ locale: string }>;
-}
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Feel free to contact us through the contact form. We get back to you within 24 hours or even faster.",
+  openGraph: {
+    title: "Contact Us | Costa Blanca Media",
+    description:
+      "Feel free to contact us through the contact form. We get back to you within 24 hours or even faster.",
+    images: [{ url: "/api/og?title=Contact Us&subtitle=Get in Touch with Costa Blanca Media" }],
+  },
+  alternates: { canonical: "https://www.costablancamedia.es/contact" },
+};
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  const dict = await getDictionary(locale as Locale);
-  const baseUrl = "https://www.costablancamedia.es";
-  const path = localePath("/contact", locale as Locale);
+const contactInfo = [
+  {
+    icon: Phone,
+    title: "Call for help",
+    lines: ["Not supported right now.", "For now only mail support"],
+  },
+  {
+    icon: MapPin,
+    title: "Office address",
+    lines: ["Torrevieja Center", "Alicante, Spain"],
+  },
+  {
+    icon: Mail,
+    title: "Email address",
+    lines: ["support@costablancamedia.es", "info@costablancamedia.es"],
+    hrefs: ["mailto:support@costablancamedia.es", "mailto:info@costablancamedia.es"],
+  },
+  {
+    icon: MessageCircle,
+    title: "WhatsApp",
+    lines: ["Feel free to contact us through WhatsApp by clicking here."],
+    hrefs: ["https://wa.me/46729631278"],
+    iconHref: "https://wa.me/46729631278",
+  },
+];
 
-  return {
-    title: dict.contactPage.metaTitle,
-    description: dict.contactPage.metaDescription,
-    openGraph: {
-      title: `${dict.contactPage.metaTitle} | Costa Blanca Media`,
-      description: dict.contactPage.metaDescription,
-      images: [{ url: "/api/og?title=Contact Us&subtitle=Get in Touch with Costa Blanca Media" }],
-    },
-    alternates: {
-      canonical: `${baseUrl}${path}`,
-      languages: { en: `${baseUrl}/contact`, sv: `${baseUrl}/sv/contact` },
-    },
-  };
-}
-
-export default async function ContactPage({ params }: Props) {
-  const { locale } = await params;
-  const dict = await getDictionary(locale as Locale);
-
-  const contactInfo = [
-    {
-      icon: Phone,
-      title: dict.contactPage.callForHelp,
-      lines: [dict.contactPage.notSupported, dict.contactPage.forNowOnlyMail],
-    },
-    {
-      icon: MapPin,
-      title: dict.contactPage.officeAddress,
-      lines: [dict.contactPage.addressLine1, dict.contactPage.addressLine2],
-    },
-    {
-      icon: Mail,
-      title: dict.contactPage.emailAddress,
-      lines: ["support@costablancamedia.es", "info@costablancamedia.es"],
-      hrefs: ["mailto:support@costablancamedia.es", "mailto:info@costablancamedia.es"],
-    },
-    {
-      icon: MessageCircle,
-      title: dict.contactPage.whatsapp,
-      lines: [dict.contactPage.whatsappText],
-      hrefs: ["https://wa.me/46729631278"],
-      iconHref: "https://wa.me/46729631278",
-    },
-  ];
-
+export default function ContactPage() {
   return (
     <section className="py-16 lg:py-24">
       <Container>
@@ -67,12 +50,12 @@ export default async function ContactPage({ params }: Props) {
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <h1 className="font-heading text-3xl lg:text-4xl font-bold text-text-dark mb-2">
-              {dict.contactPage.title}
+              Request a quote for work
             </h1>
             <h2 className="text-text text-lg mb-8">
-              {dict.contactPage.subtitle}
+              Get in Touch — We Respond Within 24 Hours
             </h2>
-            <ContactForm dict={dict} />
+            <ContactForm />
           </div>
 
           {/* Contact Info */}

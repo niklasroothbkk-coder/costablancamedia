@@ -3,8 +3,7 @@ import Link from "next/link";
 import Container from "@/components/ui/Container";
 import { CheckCircle } from "lucide-react";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-export default function HeroSection({ dict }: { dict: any }) {
+export default function HeroSection() {
   return (
     <section className="pt-12 pb-2 lg:pt-20 lg:pb-4 overflow-hidden">
       <Container>
@@ -46,7 +45,7 @@ export default function HeroSection({ dict }: { dict: any }) {
                 </div>
                 <div>
                   <div className="text-2xl font-bold leading-tight">30+</div>
-                  <div className="text-xs opacity-90">{dict.hero.yearsExperience}</div>
+                  <div className="text-xs opacity-90">Years of experience</div>
                 </div>
               </div>
             </div>
@@ -65,13 +64,17 @@ export default function HeroSection({ dict }: { dict: any }) {
           {/* Right column - Content */}
           <div className="pt-2">
             <p className="font-semibold text-[20px] mb-2 tracking-wide">
-              <span className="text-primary">//</span> <span className="text-text-dark">{dict.hero.subtitle}</span>
+              <span className="text-primary">//</span> <span className="text-text-dark">Get to Know</span>
             </p>
             <h1 className="font-heading text-3xl lg:text-[42px] font-bold text-text-dark mb-5 leading-tight">
-              {dict.hero.title}
+              Swedish-operated web agency in Torrevieja
             </h1>
             <ul className="space-y-3 mb-5">
-              {dict.hero.bullets.map((item: string) => (
+              {[
+                "Swedish & English Speaking staff that understand",
+                "Quality work with responsibility and follow-up",
+                "Affordable and secure for your businesses from day 1",
+              ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <CheckCircle
                     size={20}
@@ -82,9 +85,14 @@ export default function HeroSection({ dict }: { dict: any }) {
               ))}
             </ul>
             <p className="text-text mb-6 leading-relaxed text-[15px]">
-              {dict.hero.description1}
+              Welcome to Costa Blanca Media located in the beautiful coastal
+              city of Torrevieja! With a strong focus on creativity, innovation,
+              and quality, we are dedicated to providing outstanding digital
+              solutions to your business.
               <br /><br />
-              {dict.hero.description2}
+              We specialize in helping brands grow their online presence through
+              tailored strategies and cutting-edge technology. Let us bring your
+              vision to life and take your business to the next level.
             </p>
             <div className="flex items-center gap-4 p-4 bg-light-gray rounded-lg">
               <Image

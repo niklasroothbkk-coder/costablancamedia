@@ -10,7 +10,6 @@ import {
   Server,
 } from "lucide-react";
 import type { Service } from "@/lib/data/services";
-import { localePath, type Locale } from "@/lib/i18n/config";
 
 const iconMap: Record<string, React.ElementType> = {
   code: Code,
@@ -25,22 +24,18 @@ const iconMap: Record<string, React.ElementType> = {
 interface ServiceCardProps {
   service: Service;
   variant?: "home" | "numbered";
-  locale?: string;
 }
 
 export default function ServiceCard({
   service,
   variant = "home",
-  locale = "en",
 }: ServiceCardProps) {
   const Icon = iconMap[service.icon] || Code;
-  const loc = locale as Locale;
-  const readMoreText = loc === "sv" ? "Läs mer" : "Read More";
 
   if (variant === "numbered") {
     return (
       <Link
-        href={localePath(`/services/${service.slug}`, loc)}
+        href={`/services/${service.slug}`}
         className="group block bg-white rounded-lg border border-border overflow-hidden hover:shadow-lg transition-all duration-300"
       >
         <div className="relative h-48 bg-light-gray overflow-hidden">
@@ -66,7 +61,7 @@ export default function ServiceCard({
           </div>
           <p className="text-text text-sm mb-4">{service.shortDescription}</p>
           <span className="text-primary text-sm font-semibold group-hover:underline">
-            {readMoreText} &rarr;
+            Read More &rarr;
           </span>
         </div>
       </Link>
@@ -76,7 +71,7 @@ export default function ServiceCard({
   // Home variant - card with background image and overlapping icon
   return (
     <Link
-      href={localePath(`/services/${service.slug}`, loc)}
+      href={`/services/${service.slug}`}
       className="group block relative overflow-hidden rounded-lg hover:shadow-xl transition-all duration-300"
     >
       {/* Background image */}

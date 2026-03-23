@@ -21,18 +21,12 @@ const faqs = [
   },
 ];
 
-interface FAQItem {
-  question: string;
-  answer: string;
-}
-
-export default function FAQ({ items }: { items?: FAQItem[] }) {
+export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const faqData = items || faqs;
 
   return (
     <div className="space-y-4">
-      {faqData.map((faq, index) => (
+      {faqs.map((faq, index) => (
         <div
           key={index}
           className="border border-border rounded-lg overflow-hidden"

@@ -16,10 +16,8 @@ const EMAILJS_SERVICE_ID = "service_z8csv98";
 const EMAILJS_TEMPLATE_ID = "template_lb0w37t";
 const EMAILJS_PUBLIC_KEY = "NmZE_vtJoTyrDx3Tp";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-export default function ContactForm({ dict }: { dict: any }) {
+export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-  const cf = dict.contactForm;
 
   const {
     register,
@@ -55,10 +53,11 @@ export default function ContactForm({ dict }: { dict: any }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-dark mb-1">
-            {cf.name} <span className="text-red-500">{cf.required}</span>
+            Name <span className="text-red-500">*</span>
           </label>
           <input
-            {...register("name", { required: cf.nameRequired })}
+            {...register("name", { required: "Name is required" })}
+
             className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors"
           />
           {errors.name && (
@@ -67,17 +66,18 @@ export default function ContactForm({ dict }: { dict: any }) {
         </div>
         <div>
           <label className="block text-sm font-medium text-text-dark mb-1">
-            {cf.email} <span className="text-red-500">{cf.required}</span>
+            Email <span className="text-red-500">*</span>
           </label>
           <input
             {...register("email", {
-              required: cf.emailRequired,
+              required: "Email is required",
               pattern: {
                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: cf.invalidEmail,
+                message: "Invalid email",
               },
             })}
             type="email"
+
             className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors"
           />
           {errors.email && (
@@ -88,10 +88,11 @@ export default function ContactForm({ dict }: { dict: any }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-dark mb-1">
-            {cf.subject} <span className="text-red-500">{cf.required}</span>
+            Subject <span className="text-red-500">*</span>
           </label>
           <input
-            {...register("subject", { required: cf.subjectRequired })}
+            {...register("subject", { required: "Subject is required" })}
+
             className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors"
           />
           {errors.subject && (
@@ -100,20 +101,22 @@ export default function ContactForm({ dict }: { dict: any }) {
         </div>
         <div>
           <label className="block text-sm font-medium text-text-dark mb-1">
-            {cf.phone}
+            Phone
           </label>
           <input
             {...register("phone")}
+
             className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors"
           />
         </div>
       </div>
       <div>
         <label className="block text-sm font-medium text-text-dark mb-1">
-          {cf.message} <span className="text-red-500">{cf.required}</span>
+          Message <span className="text-red-500">*</span>
         </label>
         <textarea
-          {...register("message", { required: cf.messageRequired })}
+          {...register("message", { required: "Message is required" })}
+
           rows={5}
           className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors resize-none"
         />
@@ -126,16 +129,16 @@ export default function ContactForm({ dict }: { dict: any }) {
         disabled={status === "sending"}
         className="inline-flex items-center justify-center px-8 py-3 bg-primary text-white rounded font-semibold text-sm hover:bg-primary-dark transition-colors disabled:opacity-50 cursor-pointer"
       >
-        {status === "sending" ? cf.sending : cf.sendMessage}
+        {status === "sending" ? "Sending..." : "Send Message"}
       </button>
       {status === "success" && (
         <p className="text-green-600 text-sm font-medium">
-          {cf.successMessage}
+          Message sent successfully! We&apos;ll get back to you soon.
         </p>
       )}
       {status === "error" && (
         <p className="text-red-500 text-sm font-medium">
-          {cf.errorMessage}
+          Something went wrong. Please try again or email us directly.
         </p>
       )}
     </form>

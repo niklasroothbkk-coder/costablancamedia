@@ -1,19 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Project } from "@/lib/data/projects";
-import { localePath, type Locale } from "@/lib/i18n/config";
 
 interface ProjectCardProps {
   project: Project;
-  locale?: string;
 }
 
-export default function ProjectCard({ project, locale = "en" }: ProjectCardProps) {
-  const loc = locale as Locale;
-
+export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link
-      href={localePath(`/projects/${project.slug}`, loc)}
+      href={`/projects/${project.slug}`}
       className="group block bg-white rounded-lg border border-border overflow-hidden hover:shadow-lg transition-all duration-300"
     >
       <div className="relative h-48 bg-light-gray overflow-hidden flex items-center justify-center">

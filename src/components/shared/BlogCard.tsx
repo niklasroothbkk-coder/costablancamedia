@@ -1,29 +1,24 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { BlogPost } from "@/lib/data/blog-posts";
-import { localePath, type Locale } from "@/lib/i18n/config";
 
 interface BlogCardProps {
   post: BlogPost;
-  locale?: string;
 }
 
-export default function BlogCard({ post, locale = "en" }: BlogCardProps) {
-  const loc = locale as Locale;
-  const dateLocale = loc === "sv" ? "sv-SE" : "en-US";
+export default function BlogCard({ post }: BlogCardProps) {
   const formatted = new Date(post.date)
-    .toLocaleDateString(dateLocale, {
+    .toLocaleDateString("en-US", {
       month: "long",
       day: "numeric",
       year: "numeric",
     })
     .toUpperCase();
-  const readMoreText = loc === "sv" ? "Läs mer" : "Read More";
 
   return (
     <article className="group cursor-pointer">
-      {/* 1. Featured Image */}
-      <Link href={localePath(`/news/${post.slug}`, loc)}>
+      {/* 1. Featured Image — clip bottom so white bar covers it */}
+      <Link href={`/news/${post.slug}`}>
         <div className="relative w-full aspect-[3/2] overflow-hidden rounded-t-lg">
           <Image
             src={post.image}
@@ -55,15 +50,15 @@ export default function BlogCard({ post, locale = "en" }: BlogCardProps) {
 
       {/* 3. Title */}
       <h2 className="mt-4 px-4 font-heading font-bold text-[22px] leading-tight text-[#1a1a2e] group-hover:text-[#1BA8C8] transition-colors">
-        <Link href={localePath(`/news/${post.slug}`, loc)}>{post.title}</Link>
+        <Link href={`/news/${post.slug}`}>{post.title}</Link>
       </h2>
 
       {/* 4. Read More */}
       <Link
-        href={localePath(`/news/${post.slug}`, loc)}
+        href={`/news/${post.slug}`}
         className="mt-3 px-4 inline-flex items-center gap-2 text-[15px] font-medium text-[#333] hover:text-[#1BA8C8] transition-colors"
       >
-        {readMoreText}
+        Read More
         <span className="w-6 h-6 rounded-full bg-[#1BA8C8] flex items-center justify-center">
           <svg
             width="14"

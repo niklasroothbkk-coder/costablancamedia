@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Search } from "lucide-react";
-import { localePath, type Locale } from "@/lib/i18n/config";
 
 interface Post {
   slug: string;
@@ -13,21 +12,14 @@ interface Post {
   image: string;
 }
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-export default function SidebarSearch({ posts, locale = "en", dict }: { posts: Post[]; locale?: string; dict?: any }) {
+export default function SidebarSearch({ posts }: { posts: Post[] }) {
   const [query, setQuery] = useState("");
-  const loc = locale as Locale;
 
   const filtered = query.trim()
     ? posts.filter((p) =>
         p.title.toLowerCase().includes(query.toLowerCase())
       )
     : posts;
-
-  const searchPlaceholder = dict?.common?.searchArticles || "Search articles...";
-  const moreNewsLabel = dict?.common?.moreNews || "More News";
-  const resultsForLabel = dict?.common?.resultsFor || "Results for";
-  const noArticlesLabel = dict?.common?.noArticlesFound || "No articles found.";
 
   return (
     <>
@@ -38,7 +30,7 @@ export default function SidebarSearch({ posts, locale = "en", dict }: { posts: P
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder={searchPlaceholder}
+            placeholder="Search articles..."
             className="flex-1 border border-border rounded-l px-4 py-2.5 text-sm focus:outline-none focus:border-primary"
           />
           <button className="bg-primary text-white px-4 py-2.5 rounded-r hover:bg-primary-dark transition-colors">
@@ -50,16 +42,16 @@ export default function SidebarSearch({ posts, locale = "en", dict }: { posts: P
       {/* More News */}
       <div className="bg-white rounded-lg border border-border p-6">
         <h3 className="font-heading text-xl font-bold text-text-dark mb-6">
-          {query.trim() ? `${resultsForLabel} "${query}"` : moreNewsLabel}
+          {query.trim() ? `Results for "${query}"` : "More News"}
         </h3>
         {filtered.length === 0 ? (
-          <p className="text-text text-sm">{noArticlesLabel}</p>
+          <p className="text-text text-sm">No articles found.</p>
         ) : (
           <div className="space-y-5">
             {filtered.map((p) => (
               <Link
                 key={p.slug}
-                href={localePath(`/news/${p.slug}`, loc)}
+                href={`/news/${p.slug}`}
                 className="flex items-center gap-4 group"
               >
                 <Image
