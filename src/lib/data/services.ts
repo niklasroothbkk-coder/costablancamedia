@@ -16,7 +16,7 @@ export const services: Service[] = [
     slug: "web-development",
     name: "Web Development",
     shortDescription: "Quality coding from start to finish",
-    metaDescription: "Web Development at Costa Blanca Media. We are a premier web development company dedicated to helping businesses thrive in the digital era.",
+    metaDescription: "Professional web development services by Costa Blanca Media. Custom solutions tailored to your business needs.",
     description: [
       "Costa Blanca Media: Your Gateway to Exceptional Web Development Solutions",
       "Costa Blanca Media is a premier web development company dedicated to helping businesses thrive in the digital era. With our passion for innovation and expertise in web design and development, we create impactful online experiences that elevate brands and drive tangible results.",
@@ -36,7 +36,7 @@ export const services: Service[] = [
     slug: "web-design",
     name: "Web Design",
     shortDescription: "Stunning design for your website",
-    metaDescription: "Web Design at Costa Blanca Media. At Costa Blanca Media, we believe that exceptional web design goes beyond mere aesthetics.",
+    metaDescription: "Professional web design services to create attractive, user-friendly websites that convert visitors into customers.",
     description: [
       "Costa Blanca Media: Transforming Brands with Stunning Web Design Solutions",
       "At Costa Blanca Media, we believe that exceptional web design goes beyond mere aesthetics. It is a strategic blend of form and function, where user experience takes center stage. We combines artistic flair with user-centric design principles to create websites that not only look visually appealing but also provide seamless navigation and intuitive user interfaces.",
@@ -56,7 +56,7 @@ export const services: Service[] = [
     slug: "web-marketing",
     name: "Web Marketing",
     shortDescription: "Get the results you're looking for",
-    metaDescription: "Web Marketing by Costa Blanca Media. To be visible online, web marketing is a must.",
+    metaDescription: "Web marketing services including SEO, SEM, social media marketing and content marketing to grow your online presence.",
     description: [
       "Costa Blanca Media: Accelerating Business Growth through Effective Web Marketing Strategies",
       "At Costa Blanca Media, we understand that in today's competitive digital world, a strong and well-executed online marketing strategy is essential for businesses looking to reach their target audience, build brand awareness, and drive real, measurable results. Whether you're a startup aiming to establish your presence or an established business seeking to expand, your online visibility can make or break your success. That's where we come in.",
@@ -82,7 +82,7 @@ export const services: Service[] = [
     slug: "web-application",
     name: "Web Application",
     shortDescription: "App development for all platforms",
-    metaDescription: "Web Application by Costa Blanca Media. We help you to develop apps for all platforms.",
+    metaDescription: "Custom web application development services for your business. Scalable, secure, and user-friendly solutions.",
     description: [
       "Costa Blanca Media: Igniting Innovation with Exceptional App Development Solutions",
       "At Costa Blanca Media, we understand the power of mobile apps in today's digital landscape. We collaborate with a Swedish developer agency to ensure the delivery of a high-quality app. We handle the project setup and design, and then pass on the job to our trusted partners, overseeing every step of the process until it is completed.",
@@ -103,7 +103,7 @@ export const services: Service[] = [
     slug: "graphic-design",
     name: "Graphic Design",
     shortDescription: "A stunning and standout design",
-    metaDescription: "Graphic Design by Costa Blanca Media: Elevating Brands with Captivating Graphic Design Solutions.",
+    metaDescription: "Professional graphic design services including logo design, branding, and visual content creation.",
     description: [
       "Costa Blanca Media: Elevating Brands with Captivating Graphic Design Solutions.",
       "At Costa Blanca Media, we understand that exceptional graphic design goes beyond aesthetics. It is a powerful tool that communicates your brand's identity, values, and messaging. Our talented team of designers combines artistic flair with strategic thinking to create captivating designs that align with your brand's vision and goals. With our passion for creativity and attention to detail, we bring brands to life and leave a lasting impression on their target audience.",
@@ -123,7 +123,7 @@ export const services: Service[] = [
     slug: "seo",
     name: "SEO",
     shortDescription: "Get visibility on search engines",
-    metaDescription: "SEO (Search Engine Optimization) by Costa Blanca Media. We understand that appearing at the top of search engine rankings is important.",
+    metaDescription: "SEO services to improve your website's visibility in search engines and drive organic traffic to your site.",
     description: [
       "Costa Blanca Media: Driving Online Success with Powerful SEO Solutions",
       "At Costa Blanca Media, we understand that appearing at the top of search engine rankings is crucial for businesses to be discovered by their target audience. Our team of SEO specialists combines in-depth keyword research, technical optimization, and strategic content creation to improve your website's visibility and organic traffic.",
@@ -143,7 +143,7 @@ export const services: Service[] = [
     slug: "hosting-service",
     name: "Hosting Service",
     shortDescription: "Secure hosting with daily backups",
-    metaDescription: "Hosting Service by Costa Blanca Media. Your Secure Hosting Solution on European Servers with Daily Backups.",
+    metaDescription: "Secure and reliable web hosting services with excellent uptime and customer support.",
     description: [
       "Costa Blanca Media: Your Secure Hosting Solution on European Servers with Daily Backups",
       "Costa Blanca Media, a trusted provider of hosting services designed to ensure the security and reliability of your online operations. We pride ourselves on offering secure hosting solutions on European servers, coupled with daily backups, to safeguard your valuable data and provide you with peace of mind.",

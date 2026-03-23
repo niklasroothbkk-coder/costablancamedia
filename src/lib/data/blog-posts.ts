@@ -15,7 +15,7 @@ export const blogPosts: BlogPost[] = [
     title: "Why choose Costa Blanca Media",
     date: "March 23, 2026",
     excerpt:
-      "Running a business in Spain as a Swede or Scandinavian can be both exciting and challenging—especially when it comes to your digital presence.",
+      "Learn why Costa Blanca Media is the right choice for your web development and design needs.",
     content: [
       "Running a business in Spain as a Swede or Scandinavian can be both exciting and challenging—especially when it comes to your digital presence. A professional website, app, or digital strategy is essential today to reach customers, build trust, and grow your business. This is where a local partner who truly understands your situation makes all the difference.",
       "HEADING:So why choose Costa Blanca Media",
@@ -62,7 +62,7 @@ export const blogPosts: BlogPost[] = [
     title: "Social Marketing = Building Connections",
     date: "August 5, 2025",
     excerpt:
-      "In today's fast-paced and interconnected world, social marketing has become an integral part of any successful marketing strategy.",
+      "Explore the importance of social media marketing for your business growth and customer engagement.",
     content: [
       "In today's fast-paced and interconnected world, social marketing has become an integral part of any successful marketing strategy. As social media platforms continue to dominate the digital landscape, harnessing their power has become crucial for businesses, organizations, and individuals alike. Here, we explore why social marketing is of paramount importance in this ever-evolving era.",
       "Firstly, social marketing enables businesses to reach and engage with a vast and diverse audience. With billions of active users across various platforms, such as Facebook, Instagram, Twitter, and LinkedIn, social media offers unparalleled opportunities for businesses to connect directly with potential customers. By creating compelling content and fostering meaningful interactions, organizations can build brand awareness, drive website traffic, and generate leads, all while gaining valuable insights into consumer behavior.",
@@ -83,7 +83,7 @@ export const blogPosts: BlogPost[] = [
     title: "The Importance of Setting Up Proper SEO",
     date: "May 2, 2025",
     excerpt:
-      "In today's digital landscape, having a strong online presence is crucial for the success of any business or website.",
+      "Understand why proper SEO setup is crucial for your website's visibility and ranking in search engines.",
     content: [
       "In today's digital landscape, having a strong online presence is crucial for the success of any business or website. Search Engine Optimization (SEO) plays a pivotal role in ensuring that your online content is discoverable and ranks well on search engine results pages (SERPs). By setting up proper SEO, you can significantly enhance your visibility, increase organic traffic, and ultimately achieve your online goals. Here are a few compelling reasons why setting up proper SEO is an absolute must:",
       "IMAGE:/images/blog/seo-3.jpg|/images/blog/seo-2.jpg",
@@ -107,7 +107,7 @@ export const blogPosts: BlogPost[] = [
     title: "Funnel - a must for your business",
     date: "March 1, 2025",
     excerpt:
-      "Having a proper funnel set up for your online business is crucial for several reasons. It will save you money and time.",
+      "Learn why implementing a sales funnel is essential for your business success and customer conversion.",
     content: [
       "HEADING:1. Optimizes Customer Journey",
       "A well-structured funnel guides potential customers through the buying process, ensuring they receive the right information and incentives at each stage. This makes it easier for them to make informed decisions, increasing the likelihood of conversions.",
@@ -143,7 +143,7 @@ export const blogPosts: BlogPost[] = [
     title: "The Effectiveness of Email Marketing",
     date: "January 27, 2025",
     excerpt:
-      "Email marketing remains a cornerstone of digital marketing strategies due to its unparalleled ability to connect directly with audiences.",
+      "Discover how email marketing can be one of your most effective marketing channels for customer engagement.",
     content: [
       "IMAGERIGHT:/images/blog/EmailMarketing.webp",
       "Email marketing remains a cornerstone of digital marketing strategies due to its unparalleled ability to connect directly with audiences, drive engagement, and deliver a high return on investment (ROI). Here are key reasons why email marketing is so effective.",
@@ -169,7 +169,7 @@ export const blogPosts: BlogPost[] = [
     title: "5 tips to help you with planning",
     date: "October 15, 2024",
     excerpt:
-      "Having a website offers several significant benefits for individuals and businesses alike. However, it is important to plan your site carefully.",
+      "Get 5 practical tips to help you plan and develop a successful website for your business.",
     content: [
       "Having a website offers several significant benefits for individuals and businesses alike. However, it is important to plan your site carefully to save both money and time. It is better to \"do it properly from the start then try a shortcut.\" Here are five tips to help you get started:",
       "IMAGE:/images/blog/5tips1.webp|/images/blog/5tips2.webp",
@@ -197,7 +197,7 @@ export const blogPosts: BlogPost[] = [
     title: "The importance of a good hosting",
     date: "July 21, 2024",
     excerpt:
-      "A good hosting service is of paramount importance for any website or online venture. It plays a crucial role in ensuring optimal performance.",
+      "Learn why choosing the right web hosting provider is critical for your website's performance and reliability.",
     content: [
       "A good hosting service is of paramount importance for any website or online venture. It plays a crucial role in ensuring optimal performance, security, and user experience. Here are some key reasons why having a good hosting provider is essential:",
       "HEADING:1. Reliability and Uptime",

@@ -5,7 +5,7 @@ export const blogPosts: BlogPost[] = [
     "slug": "why-choose-costa-blanca-media",
     "title": "Varför välja Costa Blanca Media",
     "date": "March 23, 2026",
-    "excerpt": "Att driva företag i Spanien som svensk eller skandinav kan vara både spännande och utmanande - särskilt när det gäller din digitala närvaro.",
+    "excerpt": "Varför välja Costa Blanca Media för din webbyrå? Vi erbjuder svenska proffs, erfarenhet och resultat.",
     "content": [
       "Att driva företag i Spanien som svensk eller skandinav kan vara både spännande och utmanande - särskilt när det gäller din digitala närvaro. En professionell webbplats, app eller digital strategi är idag avgörande för att nå ut till kunder, bygga förtroende och få ditt företag att växa. Det är här som en lokal partner som verkligen förstår din situation gör hela skillnaden.",
       "HEADING:Så varför välja Costa Blanca Media",
@@ -60,7 +60,7 @@ export const blogPosts: BlogPost[] = [
     "slug": "social-marketing-why-so-important",
     "title": "Social marknadsföring - är viktigt!",
     "date": "August 5, 2025",
-    "excerpt": "I dagens snabba och sammankopplade värld har social marknadsföring blivit en integrerad del av alla framgångsrika marknadsföringsstrategier.",
+    "excerpt": "Social marknadsföring är avgörande för att nå dina kunder. Läs varför social media är så viktigt för ditt företag.",
     "content": [
       "I dagens snabba och sammankopplade värld har social marknadsföring blivit en integrerad del av alla framgångsrika marknadsföringsstrategier. Eftersom sociala medieplattformar fortsätter att dominera det digitala landskapet har det blivit avgörande för både företag, organisationer och individer att utnyttja deras kraft. Här utforskar vi varför social marknadsföring är av yttersta vikt i denna ständigt föränderliga era.",
       "För det första gör social marknadsföring det möjligt för företag att nå och engagera sig i en stor och varierad publik. Med miljarder aktiva användare på olika plattformar, till exempel Facebook, Instagram, Twitter och LinkedIn, erbjuder sociala medier oöverträffade möjligheter för företag att få direktkontakt med potentiella kunder. Genom att skapa övertygande innehåll och främja meningsfulla interaktioner kan organisationer bygga upp varumärkeskännedom, driva webbplatstrafik och generera leads, samtidigt som de får värdefulla insikter om konsumentbeteende.",
@@ -88,7 +88,7 @@ export const blogPosts: BlogPost[] = [
     "slug": "the-importance-of-setting-up-proper-seo",
     "title": "Vikten av att ställa in korrekt SEO",
     "date": "May 2, 2025",
-    "excerpt": "I dagens digitala landskap är en stark närvaro på nätet avgörande för att ett företag eller en webbplats ska lyckas.",
+    "excerpt": "Proper SEO är viktigt för din webbplats synlighet. Läs om varför korrekt SEO-konfigurering är avgörande.",
     "content": [
       "I dagens digitala landskap är en stark närvaro på nätet avgörande för att ett företag eller en webbplats ska lyckas. Sökmotoroptimering (SEO) spelar en central roll för att säkerställa att ditt onlineinnehåll är sökbart och rankas bra på sökmotorernas resultatsidor (SERP). Genom att sätta upp korrekt SEO kan du avsevärt förbättra din synlighet, öka den organiska trafiken och i slutändan uppnå dina onlinemål. Här är några övertygande skäl till varför korrekt SEO är ett absolut måste:",
       "IMAGE:/images/blog/seo-3.jpg|/images/blog/seo-2.jpg",
@@ -121,7 +121,7 @@ export const blogPosts: BlogPost[] = [
     "slug": "funnel-a-must-for-your-business",
     "title": "Funnel - ett måste för ditt företag",
     "date": "March 1, 2025",
-    "excerpt": "Att ha en ordentlig funnel för din online-verksamhet är avgörande av flera skäl. Det kommer att spara pengar och tid.",
+    "excerpt": "En försäljningstratt är avgörande för att konvertera besökare till kunder. Läs varför du behöver en funnel.",
     "content": [
       "HEADING:1. Optimerar kundresan",
       "En välstrukturerad funnel guidar potentiella kunder genom köpprocessen och ser till att de får rätt information och incitament i varje steg. Detta gör det lättare för dem att fatta välgrundade beslut, vilket ökar sannolikheten för konverteringar.",
@@ -165,7 +165,7 @@ export const blogPosts: BlogPost[] = [
     "slug": "the-effectiveness-of-email-marketing",
     "title": "Effektiviteten i e-postmarknadsföring",
     "date": "January 27, 2025",
-    "excerpt": "E-postmarknadsföring är fortfarande en hörnsten i digitala marknadsföringsstrategier på grund av dess oöverträffade förmåga att få direktkontakt med målgrupper.",
+    "excerpt": "E-postmarknadsföring är en av de mest effektiva marknadsföringsmetoderna. Läs varför du bör använda det.",
     "content": [
       "IMAGERIGHT:/images/blog/EmailMarketing.webp",
       "E-postmarknadsföring är fortfarande en hörnsten i digitala marknadsföringsstrategier på grund av dess oöverträffade förmåga att få direktkontakt med målgrupper, skapa engagemang och ge hög avkastning på investeringen (ROI). Här är några viktiga skäl till varför e-postmarknadsföring är så effektivt.",
@@ -198,7 +198,7 @@ export const blogPosts: BlogPost[] = [
     "slug": "5-tips-to-help-you-with-planning-your-website",
     "title": "5 planerings tips för din webbplats",
     "date": "October 15, 2024",
-    "excerpt": "Att ha en webbplats erbjuder flera betydande fördelar för både privatpersoner och företag. Det är dock viktigt att planera sin webbplats noggrant.",
+    "excerpt": "Planering av din webbplats är avgörande. Här är 5 tips för att komma igång med rätt fot.",
     "content": [
       "Att ha en webbplats erbjuder flera betydande fördelar för både privatpersoner och företag. Det är dock viktigt att planera sin webbplats noga för att spara både pengar och tid. Det är bättre att \"göra det ordentligt från början än att försöka sig på en genväg\". Här är fem tips som hjälper dig att komma igång:",
       "IMAGE:/images/blog/5tips1.webp|/images/blog/5tips2.webp",
@@ -238,7 +238,7 @@ export const blogPosts: BlogPost[] = [
     "slug": "the-importance-of-a-good-hosting",
     "title": "Vikten av ett bra webbhotell",
     "date": "July 21, 2024",
-    "excerpt": "En bra hostingtjänst är av yttersta vikt för alla webbplatser eller onlineföretag. Det spelar en avgörande roll för att säkerställa optimal prestanda.",
+    "excerpt": "Bra webbhosting är grundläggande för en framgångsrik webbplats. Läs varför du bör välja rätt hosting.",
     "content": [
       "En bra hostingtjänst är av yttersta vikt för alla webbplatser eller onlineföretag. Det spelar en avgörande roll för att säkerställa optimal prestanda, säkerhet och användarupplevelse. Här är några viktiga skäl till varför det är viktigt att ha en bra värdleverantör:",
       "HEADING:1. Tillförlitlighet och drifttid",

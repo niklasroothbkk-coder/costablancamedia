@@ -6,7 +6,7 @@ export const services: Service[] = [
     "slug": "web-development",
     "name": "Webbutveckling",
     "shortDescription": "Kvalitetskodning från början till slut",
-    "metaDescription": "Webbutveckling på Costa Blanca Media. Vi är ett förstklassigt webbutvecklingsföretag som hjälper företag att trivas i den digitala eran.",
+    "metaDescription": "Webbutveckling med högsta kvalitet. Vi utvecklar webbplatser från början till slut med modernt kodning.",
     "description": [
       "Costa Blanca Media: Din väg till exceptionella lösningar för webbutveckling",
       "Costa Blanca Media är ett ledande webbutvecklingsföretag som hjälper företag att blomstra i den digitala eran. Med vår passion för innovation och expertis inom webbdesign och utveckling skapar vi effektfulla onlineupplevelser som lyfter varumärken och driver konkreta resultat.",
@@ -26,7 +26,7 @@ export const services: Service[] = [
     "slug": "web-design",
     "name": "Webbdesign",
     "shortDescription": "Fantastisk design för din webbplats",
-    "metaDescription": "Webbdesign på Costa Blanca Media. På Costa Blanca Media tror vi att exceptionell webbdesign går längre än bara estetik.",
+    "metaDescription": "Webbdesign som imponerar. Vi skapar vackra och användbara webbplatser som konverterar besökare till kunder.",
     "description": [
       "Costa Blanca Media: Förvandlar varumärken med fantastiska webbdesignlösningar",
       "På Costa Blanca Media anser vi att exceptionell webbdesign är mer än bara estetik. Det är en strategisk blandning av form och funktion, där användarupplevelsen står i centrum. Vi kombinerar konstnärlig känsla med användarcentrerade designprinciper för att skapa webbplatser som inte bara ser visuellt tilltalande ut utan också ger sömlös navigering och intuitiva användargränssnitt.",
@@ -46,7 +46,7 @@ export const services: Service[] = [
     "slug": "web-marketing",
     "name": "Marknadsföring på webben",
     "shortDescription": "Få de resultat du letar efter",
-    "metaDescription": "Webbmarknadsföring av Costa Blanca Media. För att synas på nätet är webbmarknadsföring ett måste.",
+    "metaDescription": "Webbmarknadsföring som fungerar. Vi hjälper dig att nå dina målgrupper genom smart digital marknadsföring.",
     "description": [
       "Costa Blanca Media: Accelererande företagstillväxt genom effektiva strategier för webbmarknadsföring",
       "På Costa Blanca Media förstår vi att i dagens konkurrenskraftiga digitala värld är en stark och väl genomförd marknadsföringsstrategi online avgörande för företag som vill nå sin målgrupp, bygga varumärkeskännedom och driva verkliga, mätbara resultat. Oavsett om du är ett nystartat företag som vill etablera dig eller ett etablerat företag som vill expandera, kan din synlighet online vara avgörande för din framgång. Det är där vi kommer in i bilden.",
@@ -72,7 +72,7 @@ export const services: Service[] = [
     "slug": "web-application",
     "name": "Webbapplikation",
     "shortDescription": "Apputveckling för alla plattformar",
-    "metaDescription": "Webbapplikation av Costa Blanca Media. Vi hjälper dig att utveckla appar för alla plattformar.",
+    "metaDescription": "Webbapplikation utvecklad enligt dina behov. Vi skapar kraftfulla webbaserade lösningar för ditt företag.",
     "description": [
       "Costa Blanca Media: Innovation med exceptionella lösningar för apputveckling",
       "På Costa Blanca Media förstår vi kraften i mobilappar i dagens digitala landskap. Vi samarbetar med en svensk utvecklingsbyrå för att säkerställa att vi levererar en app av hög kvalitet. Vi hanterar projektets upplägg och design, och lämnar sedan över jobbet till våra betrodda partners, som övervakar varje steg i processen tills den är klar.",
@@ -93,7 +93,7 @@ export const services: Service[] = [
     "slug": "graphic-design",
     "name": "Grafisk design",
     "shortDescription": "En fantastisk och iögonfallande design",
-    "metaDescription": "Grafisk design av Costa Blanca Media: Lyfter varumärken med fängslande lösningar för grafisk design.",
+    "metaDescription": "Grafisk design som kommunicerar. Vi skapar visuell identitet som passar ditt varumärke perfekt.",
     "description": [
       "Costa Blanca Media: Lyfter varumärken med fängslande lösningar för grafisk design.",
       "På Costa Blanca Media förstår vi att exceptionell grafisk design går utöver estetik. Det är ett kraftfullt verktyg som kommunicerar ditt varumärkes identitet, värderingar och meddelanden. Vårt begåvade team av designers kombinerar konstnärlig känsla med strategiskt tänkande för att skapa fängslande design som överensstämmer med ditt varumärkes vision och mål. Med vår passion för kreativitet och känsla för detaljer väcker vi varumärken till liv och lämnar ett bestående intryck hos målgruppen.",
@@ -113,7 +113,7 @@ export const services: Service[] = [
     "slug": "seo",
     "name": "SÖKMOTOROPTIMERING",
     "shortDescription": "Få synlighet på sökmotorer",
-    "metaDescription": "SEO (sökmotoroptimering) av Costa Blanca Media. Vi förstår att det är viktigt att synas högst upp i sökmotorernas rankningar.",
+    "metaDescription": "SEO som ger resultat. Vi optimerar din webbplats för sökmotorerna så du når dina målgrupper.",
     "description": [
       "Costa Blanca Media: Framgång på nätet med kraftfulla SEO-lösningar",
       "På Costa Blanca Media förstår vi att det är avgörande för företag att synas högst upp i sökmotorernas rankinglistor för att deras målgrupp ska upptäcka dem. Vårt team av SEO-specialister kombinerar djupgående sökordsforskning, teknisk optimering och strategiskt innehållsskapande för att förbättra din webbplats synlighet och organiska trafik.",
@@ -133,7 +133,7 @@ export const services: Service[] = [
     "slug": "hosting-service",
     "name": "Hosting-tjänst",
     "shortDescription": "Säker hosting med dagliga säkerhetskopior",
-    "metaDescription": "Värdtjänst av Costa Blanca Media. Din säkra hostinglösning på europeiska servrar med dagliga säkerhetskopior.",
+    "metaDescription": "Säker och tillförlitlig hosting. Vi erbjuder professionell webbhosting med excellent support.",
     "description": [
       "Costa Blanca Media: Din säkra hostinglösning på europeiska servrar med dagliga säkerhetskopior",
       "Costa Blanca Media, en pålitlig leverantör av hostingtjänster som är utformade för att säkerställa säkerheten och tillförlitligheten i din online-verksamhet. Vi är stolta över att erbjuda säkra hostinglösningar på europeiska servrar, i kombination med dagliga säkerhetskopior, för att skydda dina värdefulla data och ge dig sinnesfrid.",
