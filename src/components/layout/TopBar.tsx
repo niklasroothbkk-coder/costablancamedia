@@ -1,7 +1,9 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 import { siteConfig } from "@/lib/data/site-config";
 
-export default function TopBar() {
+export default function TopBar({ locale }: { locale: string }) {
+  const hoursLabel = locale === "sv" ? "Tider:" : "Hours:";
+
   return (
     <div className="hidden lg:block">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,7 +22,7 @@ export default function TopBar() {
             </span>
             <span className="flex items-center gap-2">
               <MapPin size={13} />
-              Hours: {siteConfig.hours}
+              {hoursLabel} {siteConfig.hours}
             </span>
           </div>
           <div className="flex items-center gap-4">

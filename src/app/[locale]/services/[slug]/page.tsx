@@ -4,23 +4,33 @@ import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import ProjectCard from "@/components/shared/ProjectCard";
-import { services, getServiceBySlug } from "@/lib/data/services";
-import { projects } from "@/lib/data/projects";
+import { services as servicesEn } from "@/lib/data/services";
+import { getServices, getServiceBySlug, getProjects } from "@/lib/data/get-data";
+import { getDictionary } from "@/lib/i18n/dictionaries";
+import { localePath, locales, type Locale } from "@/lib/i18n/config";
 import { Check } from "lucide-react";
 
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+  const params: { locale: string; slug: string }[] = [];
+  for (const locale of locales) {
+    for (const s of servicesEn) {
+      params.push({ locale, slug: s.slug });
+    }
+  }
+  return params;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const { locale, slug } = await params;
+  const service = getServiceBySlug(slug, locale as Locale);
   if (!service) return {};
+  const baseUrl = "https://www.costablancamedia.es";
+  const path = localePath(`/services/${slug}`, locale as Locale);
+
   return {
     title: service.name,
     description: service.metaDescription,
@@ -30,16 +40,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [{ url: `/api/og?title=${encodeURIComponent(service.name)}&subtitle=Costa Blanca Media` }],
     },
     alternates: {
-      canonical: `https://www.costablancamedia.es/services/${slug}`,
+      canonical: `${baseUrl}${path}`,
+      languages: {
+        en: `${baseUrl}/services/${slug}`,
+        sv: `${baseUrl}/sv/services/${slug}`,
+      },
     },
   };
 }
 
 export default async function ServicePage({ params }: Props) {
-  const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const { locale, slug } = await params;
+  const service = getServiceBySlug(slug, locale as Locale);
   if (!service) notFound();
 
+  const dict = await getDictionary(locale as Locale);
+  const services = getServices(locale as Locale);
+  const projects = getProjects(locale as Locale);
   const relatedProjects = projects.slice(0, 3);
 
   const serviceSchema = {
@@ -62,7 +79,7 @@ export default async function ServicePage({ params }: Props) {
       "@type": "Place",
       name: "Costa Blanca, Spain",
     },
-    url: `https://www.costablancamedia.es/services/${slug}`,
+    url: `https://www.costablancamedia.es${localePath(`/services/${slug}`, locale as Locale)}`,
   };
 
   return (
@@ -74,8 +91,8 @@ export default async function ServicePage({ params }: Props) {
       <Container>
         <Breadcrumbs
           items={[
-            { name: "Home", href: "/" },
-            { name: "Services", href: "/services" },
+            { name: dict.nav.home, href: localePath("/", locale as Locale) },
+            { name: dict.nav.services, href: localePath("/services", locale as Locale) },
             { name: service.name },
           ]}
         />
@@ -85,13 +102,13 @@ export default async function ServicePage({ params }: Props) {
           <aside className="lg:col-span-1 order-2 lg:order-1">
             <div className="bg-light-gray rounded-lg p-6 sticky top-28">
               <h3 className="font-heading font-bold text-text-dark text-lg mb-4">
-                Our Services
+                {dict.servicePage.ourServices}
               </h3>
               <nav className="space-y-2">
                 {services.map((s) => (
                   <Link
                     key={s.slug}
-                    href={`/services/${s.slug}`}
+                    href={localePath(`/services/${s.slug}`, locale as Locale)}
                     className={`block px-4 py-2 rounded text-sm transition-colors ${
                       s.slug === slug
                         ? "bg-primary text-white"
@@ -103,15 +120,15 @@ export default async function ServicePage({ params }: Props) {
                 ))}
               </nav>
               <div className="mt-8 bg-primary rounded-lg p-6 text-white text-center">
-                <h4 className="font-heading font-bold mb-2">Need help?</h4>
+                <h4 className="font-heading font-bold mb-2">{dict.servicePage.needHelp}</h4>
                 <p className="text-sm opacity-90 mb-3">
-                  Contact us for a free consultation
+                  {dict.servicePage.freeConsultation}
                 </p>
                 <Link
-                  href="/contact"
+                  href={localePath("/contact", locale as Locale)}
                   className="inline-block bg-white text-primary px-6 py-2 rounded font-semibold text-sm hover:bg-light-gray transition-colors"
                 >
-                  Contact Us
+                  {dict.common.contactUs}
                 </Link>
               </div>
             </div>
@@ -131,8 +148,8 @@ export default async function ServicePage({ params }: Props) {
               {service.name}
             </h1>
 
-            <Link href="/services" className="inline-block text-sm text-primary hover:text-primary-dark transition-colors mb-6">
-              ← Back to all services
+            <Link href={localePath("/services", locale as Locale)} className="inline-block text-sm text-primary hover:text-primary-dark transition-colors mb-6">
+              {dict.common.backToAllServices}
             </Link>
 
             {service.description.map((paragraph, i) =>
@@ -151,10 +168,10 @@ export default async function ServicePage({ params }: Props) {
             {slug === "hosting-service" && (
               <div className="my-8">
                 <h3 className="font-heading font-bold text-text-dark text-2xl mb-2">
-                  Hosting packages
+                  {dict.servicePage.hostingPackages}
                 </h3>
                 <p className="text-text leading-relaxed mb-4">
-                  We offer 2 standard packages and one custom package that can be customized according to your needs. Contact us to discuss the best option for you, and we will assist you in getting exactly what you need.
+                  {dict.servicePage.hostingDescription}
                 </p>
               </div>
             )}
@@ -162,7 +179,7 @@ export default async function ServicePage({ params }: Props) {
             {/* Benefits */}
             <div className="my-8">
               <h3 className="font-heading font-bold text-text-dark text-2xl mb-4">
-                Benefits
+                {dict.servicePage.benefits}
               </h3>
               <ul className="space-y-3">
                 {service.benefits.map((benefit) => (
@@ -176,10 +193,10 @@ export default async function ServicePage({ params }: Props) {
 
             {/* Related Projects */}
             <p className="text-text mt-8 mb-2">
-              Some of our work you can see here.{" "}
+              {dict.servicePage.someOfOurWork}{" "}
               {relatedProjects.map((project, i) => (
                 <span key={project.slug}>
-                  <Link href={`/projects/${project.slug}`} className="text-text-dark font-semibold hover:text-primary transition-colors">
+                  <Link href={localePath(`/projects/${project.slug}`, locale as Locale)} className="text-text-dark font-semibold hover:text-primary transition-colors">
                     {project.name}
                   </Link>
                   {i < relatedProjects.length - 1 && (i === relatedProjects.length - 2 ? " and " : ", ")}
@@ -190,14 +207,14 @@ export default async function ServicePage({ params }: Props) {
             {/* CTA */}
             <div className="mt-8 border-l-4 border-primary pl-6 py-4">
               <p className="text-text-dark font-heading font-bold text-lg">
-                Contact us for a free consultation Monday to Friday, from 10:00 to 17:00.
+                {dict.servicePage.ctaText}
               </p>
             </div>
 
             {/* Other Services */}
             <div className="mt-12 pt-8 border-t border-border">
               <h3 className="font-heading font-bold text-text-dark text-xl mb-4">
-                Our other services
+                {dict.servicePage.otherServices}
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {services
@@ -205,7 +222,7 @@ export default async function ServicePage({ params }: Props) {
                   .map((s) => (
                     <Link
                       key={s.slug}
-                      href={`/services/${s.slug}`}
+                      href={localePath(`/services/${s.slug}`, locale as Locale)}
                       className="text-sm text-primary hover:text-primary-dark transition-colors"
                     >
                       {s.name}

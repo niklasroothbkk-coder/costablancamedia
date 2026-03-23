@@ -2,7 +2,8 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import ContactForm from "@/components/shared/ContactForm";
 
-export default function ContactFormSection() {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export default function ContactFormSection({ dict }: { dict: any }) {
   return (
     <section className="py-16 lg:py-24 relative overflow-hidden">
       <Container>
@@ -10,12 +11,12 @@ export default function ContactFormSection() {
           {/* Left: Form */}
           <div>
             <p className="font-semibold text-[20px] mb-2">
-              <span className="text-primary">//</span> <span className="text-text-dark">Contact Now</span>
+              <span className="text-primary">//</span> <span className="text-text-dark">{dict.contactFormSection.subtitle}</span>
             </p>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-8">
-              Get in touch with us
+              {dict.contactFormSection.title}
             </h2>
-            <ContactForm />
+            <ContactForm dict={dict} />
           </div>
 
           {/* Right: Image with gradient */}
