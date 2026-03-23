@@ -57,7 +57,7 @@ export default function ContactForm() {
           </label>
           <input
             {...register("name", { required: "Name is required" })}
-            placeholder="Name"
+
             className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors"
           />
           {errors.name && (
@@ -77,7 +77,7 @@ export default function ContactForm() {
               },
             })}
             type="email"
-            placeholder="Email"
+
             className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors"
           />
           {errors.email && (
@@ -92,7 +92,7 @@ export default function ContactForm() {
           </label>
           <input
             {...register("subject", { required: "Subject is required" })}
-            placeholder="Subject"
+
             className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors"
           />
           {errors.subject && (
@@ -105,7 +105,7 @@ export default function ContactForm() {
           </label>
           <input
             {...register("phone")}
-            placeholder="Phone"
+
             className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors"
           />
         </div>
@@ -116,7 +116,7 @@ export default function ContactForm() {
         </label>
         <textarea
           {...register("message", { required: "Message is required" })}
-          placeholder="Message"
+
           rows={5}
           className="w-full px-4 py-3 border border-border rounded bg-white text-text-dark placeholder-text focus:outline-none focus:border-primary transition-colors resize-none"
         />
