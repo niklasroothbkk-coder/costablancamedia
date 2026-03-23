@@ -30,7 +30,7 @@ export default function HeroSection() {
                 />
               </div>
               {/* Experience badge */}
-              <div className="absolute -bottom-4 left-0 bg-primary text-white rounded-xl px-4 py-3 shadow-lg flex items-center gap-3 z-20">
+              <div className="absolute bottom-4 left-3 bg-primary text-white rounded-xl px-4 py-3 shadow-lg flex items-center gap-3 z-20">
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                   <svg
                     width="20"
