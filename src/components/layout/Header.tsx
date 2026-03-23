@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import TopBar from "./TopBar";
 import MobileMenu from "./MobileMenu";
-import LanguageSwitcher from "./LanguageSwitcher";
+
 import Container from "@/components/ui/Container";
 import { siteConfig } from "@/lib/data/site-config";
 import { MessageSquare } from "lucide-react";
@@ -60,7 +60,6 @@ export default function Header({ locale }: { locale: string }) {
                   </Link>
                 );
               })}
-              <LanguageSwitcher locale={loc} />
             </nav>
 
             <div className="hidden lg:block">
