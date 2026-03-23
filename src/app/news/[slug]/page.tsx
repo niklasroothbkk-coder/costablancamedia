@@ -131,6 +131,16 @@ export default async function BlogPostPage({ params }: Props) {
                   </div>
                 );
               }
+              if (paragraph.startsWith("BULLET:")) {
+                const items = paragraph.replace("BULLET:", "").split("|");
+                return (
+                  <ul key={i} className="list-disc list-inside space-y-2 my-4 ml-4">
+                    {items.map((item, j) => (
+                      <li key={j} className="text-text text-lg leading-relaxed">{item}</li>
+                    ))}
+                  </ul>
+                );
+              }
               if (paragraph.startsWith("QUOTE:")) {
                 const [quote, author] = paragraph.replace("QUOTE:", "").split("|");
                 return (
