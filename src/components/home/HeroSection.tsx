@@ -5,7 +5,7 @@ import { CheckCircle } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="py-12 lg:py-20 overflow-hidden">
+    <section className="pt-12 pb-2 lg:pt-20 lg:pb-4 overflow-hidden">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Left column - Images */}
