@@ -6,62 +6,34 @@ import { blogPosts } from "@/lib/data/blog-posts";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.costablancamedia.es";
 
-  const staticPaths = ["", "/about", "/services", "/projects", "/news", "/contact"];
-
-  const staticPages = staticPaths.flatMap((path) => {
-    const alt = {
-      languages: {
-        en: `${baseUrl}${path || "/"}`,
-        sv: `${baseUrl}/sv${path || "/"}`,
-      },
-    };
-    const freq = (path === "" ? "monthly" : path === "/news" ? "weekly" : "monthly") as "monthly" | "weekly" | "yearly";
-    const prio = path === "" ? 1 : path === "/contact" ? 0.7 : 0.8;
-
+  function makeEntry(enPath: string, freq: "daily" | "weekly" | "monthly", prio: number) {
+    const enUrl = `${baseUrl}${enPath}`;
+    const svUrl = `${baseUrl}/sv${enPath}`;
+    const alt = { languages: { en: enUrl, sv: svUrl } };
     return [
-      { url: `${baseUrl}${path || "/"}`, lastModified: new Date(), changeFrequency: freq, priority: prio, alternates: alt },
-      { url: `${baseUrl}/sv${path || "/"}`, lastModified: new Date(), changeFrequency: freq, priority: prio, alternates: alt },
+      { url: enUrl, lastModified: new Date(), changeFrequency: freq, priority: prio, alternates: alt },
+      { url: svUrl, lastModified: new Date(), changeFrequency: freq, priority: prio, alternates: alt },
     ];
-  });
+  }
 
-  const servicePages = services.flatMap((s) => {
-    const alt = {
-      languages: {
-        en: `${baseUrl}/services/${s.slug}`,
-        sv: `${baseUrl}/sv/services/${s.slug}`,
-      },
-    };
-    return [
-      { url: `${baseUrl}/services/${s.slug}`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7, alternates: alt },
-      { url: `${baseUrl}/sv/services/${s.slug}`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7, alternates: alt },
-    ];
-  });
+  return [
+    // Homepage - priority 1.0, daily
+    ...makeEntry("/", "daily", 1.0),
 
-  const projectPages = projects.flatMap((p) => {
-    const alt = {
-      languages: {
-        en: `${baseUrl}/projects/${p.slug}`,
-        sv: `${baseUrl}/sv/projects/${p.slug}`,
-      },
-    };
-    return [
-      { url: `${baseUrl}/projects/${p.slug}`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6, alternates: alt },
-      { url: `${baseUrl}/sv/projects/${p.slug}`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6, alternates: alt },
-    ];
-  });
+    // Main pages - priority 0.8, weekly
+    ...makeEntry("/about", "weekly", 0.8),
+    ...makeEntry("/news", "weekly", 0.8),
+    ...makeEntry("/services", "weekly", 0.8),
+    ...makeEntry("/projects", "weekly", 0.8),
+    ...makeEntry("/contact", "weekly", 0.8),
 
-  const blogPages = blogPosts.flatMap((p) => {
-    const alt = {
-      languages: {
-        en: `${baseUrl}/news/${p.slug}`,
-        sv: `${baseUrl}/sv/news/${p.slug}`,
-      },
-    };
-    return [
-      { url: `${baseUrl}/news/${p.slug}`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6, alternates: alt },
-      { url: `${baseUrl}/sv/news/${p.slug}`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6, alternates: alt },
-    ];
-  });
+    // Service pages - priority 0.6, monthly
+    ...services.flatMap((s) => makeEntry(`/services/${s.slug}`, "monthly", 0.6)),
 
-  return [...staticPages, ...servicePages, ...projectPages, ...blogPages];
+    // Project pages - priority 0.6, monthly
+    ...projects.flatMap((p) => makeEntry(`/projects/${p.slug}`, "monthly", 0.6)),
+
+    // Blog pages - priority 0.6, monthly
+    ...blogPosts.flatMap((p) => makeEntry(`/news/${p.slug}`, "monthly", 0.6)),
+  ];
 }
