@@ -121,6 +121,22 @@ export default async function BlogPostPage({ params }: Props) {
               {post.title}
             </h1>
 
+            {(() => {
+              const subtitles: Record<string, Record<string, string>> = {
+                "why-choose-costa-blanca-media": { en: "Our Expertise and Experience", sv: "Vår expertis och erfarenhet" },
+                "social-marketing-why-so-important": { en: "The Power of Social Media Marketing", sv: "Kraften i marknadsföring på sociala medier" },
+                "the-importance-of-setting-up-proper-seo": { en: "Why SEO Matters for Your Online Presence", sv: "Varför SEO är viktigt för din närvaro på nätet" },
+                "funnel-a-must-for-your-business": { en: "Understanding Sales Funnels", sv: "Förstå försäljningstrattar" },
+                "the-effectiveness-of-email-marketing": { en: "Email Marketing Best Practices", sv: "Bästa praxis för e-postmarknadsföring" },
+                "5-tips-to-help-you-with-planning-your-website": { en: "Website Planning Tips", sv: "Tips för planering av webbplats" },
+                "the-importance-of-a-good-hosting": { en: "Why Web Hosting Matters", sv: "Varför webbhotell är viktigt" },
+              };
+              const sub = subtitles[slug];
+              if (!sub) return null;
+              const lang = locale === "sv" ? "sv" : "en";
+              return <h2 className="text-lg text-text font-medium mb-4">{sub[lang]}</h2>;
+            })()}
+
             <Link href={localePath("/news", locale as Locale)} className="inline-block text-sm text-primary hover:text-primary-dark transition-colors mb-8">
               {dict.common.backToAllArticles}
             </Link>
