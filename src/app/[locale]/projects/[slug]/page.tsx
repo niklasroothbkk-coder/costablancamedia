@@ -4,20 +4,32 @@ import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import { projects, getProjectBySlug } from "@/lib/data/projects";
+import { projects as projectsEn } from "@/lib/data/projects";
+import { getProjectBySlug } from "@/lib/data/get-data";
+import { getDictionary } from "@/lib/i18n/dictionaries";
+import { localePath, locales, type Locale } from "@/lib/i18n/config";
 
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+  const params: { locale: string; slug: string }[] = [];
+  for (const locale of locales) {
+    for (const p of projectsEn) {
+      params.push({ locale, slug: p.slug });
+    }
+  }
+  return params;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const { locale, slug } = await params;
+  const project = getProjectBySlug(slug, locale as Locale);
   if (!project) return {};
+  const baseUrl = "https://www.costablancamedia.es";
+  const path = localePath(`/projects/${slug}`, locale as Locale);
+
   return {
     title: project.h1Title || project.name,
     description: project.description,
@@ -27,16 +39,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [{ url: `/api/og?title=${encodeURIComponent(project.h1Title || project.name)}&subtitle=Project Reference` }],
     },
     alternates: {
-      canonical: `https://www.costablancamedia.es/projects/${slug}`,
+      canonical: `${baseUrl}${path}`,
+      languages: {
+        en: `${baseUrl}/projects/${slug}`,
+        sv: `${baseUrl}/sv/projects/${slug}`,
+      },
     },
   };
 }
 
 export default async function ProjectPage({ params }: Props) {
-  const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const { locale, slug } = await params;
+  const project = getProjectBySlug(slug, locale as Locale);
   if (!project) notFound();
 
+  const dict = await getDictionary(locale as Locale);
   const heroImg = project.heroImage || project.image;
   const descriptions = project.longDescription || [project.description];
 
@@ -45,8 +62,8 @@ export default async function ProjectPage({ params }: Props) {
       <Container>
         <Breadcrumbs
           items={[
-            { name: "Home", href: "/" },
-            { name: "Projects", href: "/projects" },
+            { name: dict.nav.home, href: localePath("/", locale as Locale) },
+            { name: dict.nav.references, href: localePath("/projects", locale as Locale) },
             { name: project.name },
           ]}
         />
@@ -77,8 +94,8 @@ export default async function ProjectPage({ params }: Props) {
             )}
             {!project.h2Subtitle && <div className="mb-8" />}
 
-            <Link href="/projects" className="inline-block text-sm text-primary hover:text-primary-dark transition-colors mb-6">
-              ← Back to all projects
+            <Link href={localePath("/projects", locale as Locale)} className="inline-block text-sm text-primary hover:text-primary-dark transition-colors mb-6">
+              {dict.common.backToAllProjects}
             </Link>
 
             <div className="space-y-6">
@@ -110,19 +127,19 @@ export default async function ProjectPage({ params }: Props) {
           <aside>
             <div className="bg-white rounded-lg border border-border p-8 space-y-6">
               <h3 className="font-heading text-xl font-bold text-text-dark">
-                Project information
+                {dict.projectPage.projectInformation}
               </h3>
 
               {project.client && (
                 <div className="border-b border-border pb-4">
-                  <h3 className="text-primary font-bold mb-1">Client</h3>
+                  <h3 className="text-primary font-bold mb-1">{dict.projectPage.client}</h3>
                   <p className="text-text-dark">{project.client}</p>
                 </div>
               )}
 
               {project.url && (
                 <div className="border-b border-border pb-4">
-                  <h3 className="text-primary font-bold mb-1">Website</h3>
+                  <h3 className="text-primary font-bold mb-1">{dict.projectPage.website}</h3>
                   <a
                     href={project.url}
                     target="_blank"
@@ -136,14 +153,14 @@ export default async function ProjectPage({ params }: Props) {
 
               {project.category && (
                 <div className="border-b border-border pb-4">
-                  <h3 className="text-primary font-bold mb-1">Work Done</h3>
+                  <h3 className="text-primary font-bold mb-1">{dict.projectPage.workDone}</h3>
                   <p className="text-text-dark">{project.category}</p>
                 </div>
               )}
 
               {project.timeframe && (
                 <div>
-                  <h3 className="text-primary font-bold mb-1">Timeframe</h3>
+                  <h3 className="text-primary font-bold mb-1">{dict.projectPage.timeframe}</h3>
                   <p className="text-text-dark">{project.timeframe}</p>
                 </div>
               )}
@@ -154,16 +171,16 @@ export default async function ProjectPage({ params }: Props) {
         {/* CTA */}
         <div className="mt-16 bg-primary/10 rounded-lg p-8 text-center">
           <p className="text-text-dark font-heading font-bold text-lg mb-2">
-            Interested in a similar project?
+            {dict.projectPage.interestedInSimilar}
           </p>
           <p className="text-text mb-4">
-            Contact us for a free consultation Monday to Friday, from 10:00 to 17:00
+            {dict.projectPage.ctaText}
           </p>
           <Link
-            href="/contact"
+            href={localePath("/contact", locale as Locale)}
             className="inline-flex items-center px-8 py-3 bg-primary text-white rounded font-semibold text-sm hover:bg-primary-dark transition-colors"
           >
-            Get in Touch &gt;
+            {dict.common.getInTouch}
           </Link>
         </div>
       </Container>

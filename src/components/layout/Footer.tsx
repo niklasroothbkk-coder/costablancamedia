@@ -3,17 +3,28 @@ import Image from "next/image";
 import { Mail } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { siteConfig } from "@/lib/data/site-config";
-import { services } from "@/lib/data/services";
-import { projects } from "@/lib/data/projects";
+import { getServices, getProjects } from "@/lib/data/get-data";
+import { localePath, type Locale } from "@/lib/i18n/config";
 
-export default function Footer() {
+export default function Footer({ locale }: { locale: string }) {
+  const loc = (locale || "en") as Locale;
+  const services = getServices(loc);
+  const projects = getProjects(loc);
+
+  const labels = {
+    primeServices: loc === "sv" ? "Huvudtjänster" : "Prime Services",
+    references: loc === "sv" ? "Referenser" : "References",
+    contact: loc === "sv" ? "Kontakt" : "Contact",
+    copyright: "Copyright 2023 by Costa Blanca Media",
+  };
+
   return (
     <footer className="bg-dark text-gray-300">
       <Container className="py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Column 1: Logo */}
           <div>
-            <Link href="/" className="inline-block mb-4">
+            <Link href={localePath("/", loc)} className="inline-block mb-4">
               <Image
                 src="/images/CBM Footer Logo.png"
                 alt="Costa Blanca Media logo"
@@ -27,7 +38,7 @@ export default function Footer() {
           {/* Column 2: Prime Services */}
           <div>
             <h3 className="font-heading font-bold text-lg mb-4" style={{ color: '#ffffff' }}>
-              Prime Services
+              {labels.primeServices}
             </h3>
             <ul className="space-y-2">
               {services
@@ -35,7 +46,7 @@ export default function Footer() {
                 .map((service) => (
                   <li key={service.slug}>
                     <Link
-                      href={`/services/${service.slug}`}
+                      href={localePath(`/services/${service.slug}`, loc)}
                       className="text-[16px] text-white hover:text-primary transition-colors"
                     >
                       {service.name}
@@ -48,7 +59,7 @@ export default function Footer() {
           {/* Column 3: References */}
           <div>
             <h3 className="font-heading font-bold text-lg mb-4" style={{ color: '#ffffff' }}>
-              References
+              {labels.references}
             </h3>
             <ul className="space-y-2">
               {projects
@@ -56,7 +67,7 @@ export default function Footer() {
                 .map((project) => (
                   <li key={project.slug}>
                     <Link
-                      href={`/projects/${project.slug}`}
+                      href={localePath(`/projects/${project.slug}`, loc)}
                       className="text-[16px] text-white hover:text-primary transition-colors"
                     >
                       {project.name}
@@ -69,7 +80,7 @@ export default function Footer() {
           {/* Column 4: Contact */}
           <div>
             <h3 className="font-heading font-bold text-lg mb-4" style={{ color: '#ffffff' }}>
-              Contact
+              {labels.contact}
             </h3>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-[16px] text-white">
@@ -107,7 +118,7 @@ export default function Footer() {
       <div className="border-t border-gray-700">
         <Container className="py-6">
           <p className="text-center text-sm text-gray-500">
-            Copyright 2023 by Costa Blanca Media
+            {labels.copyright}
           </p>
         </Container>
       </div>
