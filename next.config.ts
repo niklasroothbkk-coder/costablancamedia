@@ -16,7 +16,6 @@ const nextConfig: NextConfig = {
       { source: "/wp-includes/:path*", destination: "/", permanent: true },
       { source: "/wp-login.php", destination: "/", permanent: true },
       { source: "/xmlrpc.php", destination: "/", permanent: true },
-      { source: "/sitemap_index.xml", destination: "/sitemap.xml", permanent: true },
     ];
   },
 };
