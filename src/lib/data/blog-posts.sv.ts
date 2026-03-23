@@ -196,7 +196,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "5-tips-to-help-you-with-planning-your-website",
-    "title": "5 planerings tips med din webbplats",
+    "title": "5 planerings tips för din webbplats",
     "date": "October 15, 2024",
     "excerpt": "Att ha en webbplats erbjuder flera betydande fördelar för både privatpersoner och företag. Det är dock viktigt att planera sin webbplats noggrant.",
     "content": [
