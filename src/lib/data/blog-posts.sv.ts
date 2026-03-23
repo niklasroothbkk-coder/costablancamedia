@@ -58,7 +58,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "social-marketing-why-so-important",
-    "title": "Social marknadsföring = bygga kontakter",
+    "title": "Social marknadsföring - är viktigt!",
     "date": "August 5, 2025",
     "excerpt": "I dagens snabba och sammankopplade värld har social marknadsföring blivit en integrerad del av alla framgångsrika marknadsföringsstrategier.",
     "content": [
@@ -196,7 +196,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "5-tips-to-help-you-with-planning-your-website",
-    "title": "5 tips för att hjälpa dig med planeringen",
+    "title": "5 planerings tips med din webbplats",
     "date": "October 15, 2024",
     "excerpt": "Att ha en webbplats erbjuder flera betydande fördelar för både privatpersoner och företag. Det är dock viktigt att planera sin webbplats noggrant.",
     "content": [
