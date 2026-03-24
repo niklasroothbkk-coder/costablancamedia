@@ -196,7 +196,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "5-tips-to-help-you-with-planning-your-website",
-    "title": "5 planerings tips för din webbplats",
+    "title": "5 planeringstips för din webbplats",
     "date": "October 15, 2024",
     "excerpt": "Planering av din webbplats är avgörande. Här är 5 tips för att komma igång med rätt fot.",
     "content": [
