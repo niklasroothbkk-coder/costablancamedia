@@ -2,6 +2,19 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const locales = ['en', 'sv'];
 
+// Old WordPress spam paths — return 410 Gone so Google drops them
+const gonePatterns = [
+  /^\/products(\/|$)/,
+  /^\/shop(\/|$)/,
+  /^\/toyu(\/|$)/,
+  /^\/pw$/,
+  /^\/wp-admin(\/|$)/,
+  /^\/wp-content(\/|$)/,
+  /^\/wp-includes(\/|$)/,
+  /^\/wp-login\.php$/,
+  /^\/xmlrpc\.php$/,
+];
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -13,6 +26,19 @@ export function middleware(request: NextRequest) {
     pathname.includes('.')
   ) {
     return;
+  }
+
+  // Return 410 Gone for old WordPress spam URLs
+  if (gonePatterns.some((pattern) => pattern.test(pathname))) {
+    return new NextResponse(null, { status: 410, statusText: 'Gone' });
+  }
+
+  // Redirect explicit /en/... URLs to /... (canonical form)
+  if (pathname.startsWith('/en/') || pathname === '/en') {
+    const cleanPath = pathname.replace(/^\/en/, '') || '/';
+    const url = request.nextUrl.clone();
+    url.pathname = cleanPath;
+    return NextResponse.redirect(url, 301);
   }
 
   const hasLocale = locales.some(
