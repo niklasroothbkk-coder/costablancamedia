@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const locales = ['en', 'sv'];
 
-// Old WordPress spam paths — return 410 Gone so Google drops them
+// Old WordPress spam/hack paths — return 410 Gone so Google drops them
 const gonePatterns = [
   /^\/products(\/|$)/,
   /^\/shop(\/|$)/,
@@ -13,6 +13,12 @@ const gonePatterns = [
   /^\/wp-includes(\/|$)/,
   /^\/wp-login\.php$/,
   /^\/xmlrpc\.php$/,
+  /^\/contents(\/|$)/,
+  /^\/projects-category(\/|$)/,
+  /^\/staff(\/|$)/,
+  /^\/header-top(\/|$)/,
+  /^\/seo-marketing(\/|$)/,
+  /^\/\d{4}\/\d{2}\/\d{2}\//,  // Old WordPress date-based blog URLs
 ];
 
 export function middleware(request: NextRequest) {
