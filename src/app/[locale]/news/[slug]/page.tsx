@@ -41,6 +41,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.excerpt,
       images: [{ url: `/api/og?title=${encodeURIComponent(post.title)}&subtitle=News %26 Media` }],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} | Costa Blanca Media`,
+      description: post.excerpt,
+      images: [`/api/og?title=${encodeURIComponent(post.title)}&subtitle=News %26 Media`],
+    },
     alternates: {
       canonical: `${baseUrl}${path}`,
       languages: {
@@ -130,6 +136,7 @@ export default async function BlogPostPage({ params }: Props) {
                 "the-effectiveness-of-email-marketing": { en: "Email Marketing Best Practices", sv: "Bästa praxis för e-postmarknadsföring" },
                 "5-tips-to-help-you-with-planning-your-website": { en: "Website Planning Tips", sv: "Tips för planering av webbplats" },
                 "the-importance-of-a-good-hosting": { en: "Why Web Hosting Matters", sv: "Varför webbhotell är viktigt" },
+                "ai-the-new-way-to-work": { en: "How AI Is Reshaping the Modern Workplace", sv: "Hur AI omformar den moderna arbetsplatsen" },
               };
               const sub = subtitles[slug];
               if (!sub) return null;
